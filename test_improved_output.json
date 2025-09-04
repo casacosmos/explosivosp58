@@ -1,0 +1,147 @@
+{
+  "tanks": [
+    {
+      "name": "Diesel Tank #1",
+      "type": "diesel",
+      "has_dike": false,
+      "site": "ABC Gas Station",
+      "notes": null,
+      "volume": 5000.0,
+      "volume_source": "provided",
+      "id": 1
+    },
+    {
+      "name": "Storage Tank A",
+      "type": "diesel",
+      "has_dike": true,
+      "site": "XYZ Fuel Depot",
+      "notes": null,
+      "volume": 4787.53,
+      "volume_source": "computed_from_dimensions",
+      "rect_dims_ft": [
+        10.0,
+        8.0,
+        8.0
+      ],
+      "dike_dims": [
+        20.0,
+        15.0
+      ],
+      "id": 2
+    },
+    {
+      "name": "LPG Tank",
+      "type": "lpg",
+      "has_dike": false,
+      "site": "Industrial Park",
+      "notes": null,
+      "volume": 2500.0,
+      "volume_source": "provided",
+      "id": 3
+    },
+    {
+      "name": "Gasoline Storage",
+      "type": "gasoline",
+      "has_dike": true,
+      "site": "Marina Services",
+      "notes": null,
+      "volume": 8000.0,
+      "volume_source": "provided",
+      "dike_dims": [
+        5.0,
+        4.0
+      ],
+      "id": 4
+    },
+    {
+      "name": "Tanque Principal",
+      "type": "diesel",
+      "has_dike": true,
+      "site": "Juncos Gas",
+      "notes": null,
+      "volume": 523.64,
+      "volume_source": "computed_from_dimensions",
+      "rect_dims_ft": [
+        4.0,
+        3.5,
+        5.0
+      ],
+      "dike_dims": [
+        13.12,
+        9.84
+      ],
+      "id": 5
+    },
+    {
+      "name": "Pressurized Tank 1",
+      "type": "pressurized_gas",
+      "has_dike": false,
+      "site": "Chemical Plant",
+      "notes": null,
+      "volume": 1200.0,
+      "volume_source": "provided",
+      "id": 6
+    },
+    {
+      "name": "Fuel Tank North",
+      "type": "fuel",
+      "has_dike": false,
+      "site": "Airport Facility",
+      "notes": null,
+      "volume": 15000.0,
+      "volume_source": "provided",
+      "id": 7
+    },
+    {
+      "name": "Emergency Diesel",
+      "type": "diesel",
+      "has_dike": true,
+      "site": "Hospital Complex",
+      "notes": null,
+      "volume": 750.0,
+      "volume_source": "provided",
+      "dike_dims": [
+        6.0,
+        5.0
+      ],
+      "id": 8
+    },
+    {
+      "name": "Tank A-101",
+      "type": "diesel",
+      "has_dike": false,
+      "site": "Manufacturing Co",
+      "notes": null,
+      "volume": 3500.0,
+      "volume_source": "provided",
+      "id": 9
+    },
+    {
+      "name": "Main Storage",
+      "type": "diesel",
+      "has_dike": true,
+      "site": "Power Station",
+      "notes": null,
+      "volume": 13464.94,
+      "volume_source": "computed_from_dimensions",
+      "rect_dims_ft": [
+        15.0,
+        12.0,
+        10.0
+      ],
+      "dike_dims": [
+        30.0,
+        25.0
+      ],
+      "id": 10
+    }
+  ],
+  "settings": {
+    "headless": false,
+    "screenshot_full_page": true,
+    "excel_path": "/home/crisipo/Apps/explosivos/pipeline_isolated/test_tanks.csv",
+    "excel_sheet": null,
+    "file_type": "csv",
+    "output_pdf": "HUD_ASD_Results.pdf"
+  }
+}

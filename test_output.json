@@ -1,0 +1,134 @@
+{
+  "tanks": [
+    {
+      "name": "ABC Gas Station Tank 1",
+      "volume": 5000.0,
+      "type": "diesel",
+      "has_dike": false,
+      "site": "ABC Gas Station",
+      "id": 1
+    },
+    {
+      "name": "XYZ Fuel Depot Tank 1",
+      "volume": 480.0,
+      "type": "diesel",
+      "has_dike": true,
+      "dike_dims": [
+        20.0,
+        15.0
+      ],
+      "site": "XYZ Fuel Depot",
+      "rect_dims_ft": [
+        10.0,
+        8.0,
+        8.0
+      ],
+      "id": 2
+    },
+    {
+      "name": "Industrial Park Tank 1",
+      "volume": 2500.0,
+      "type": "lpg",
+      "has_dike": false,
+      "site": "Industrial Park",
+      "notes": "Product: Liquid Propane",
+      "id": 3
+    },
+    {
+      "name": "Marina Services Tank 1",
+      "volume": 8000.0,
+      "type": "gasoline",
+      "has_dike": true,
+      "dike_dims": [
+        5.0,
+        4.0
+      ],
+      "site": "Marina Services",
+      "id": 4
+    },
+    {
+      "name": "Juncos Gas Tank 1",
+      "volume": 105.0,
+      "type": "diesel",
+      "has_dike": true,
+      "dike_dims": [
+        13.12336,
+        9.84252
+      ],
+      "site": "Juncos Gas",
+      "rect_dims_ft": [
+        4.0,
+        3.5,
+        5.0
+      ],
+      "id": 5
+    },
+    {
+      "name": "Chemical Plant Tank 1",
+      "volume": 1200.0,
+      "type": "pressurized_gas",
+      "has_dike": false,
+      "site": "Chemical Plant",
+      "rect_dims_ft": [
+        10.0,
+        8.0,
+        5.0
+      ],
+      "id": 6
+    },
+    {
+      "name": "Airport Facility Tank 1",
+      "volume": 15000.0,
+      "type": "diesel",
+      "has_dike": false,
+      "site": "Airport Facility",
+      "notes": "Product: Jet Fuel",
+      "id": 7
+    },
+    {
+      "name": "Hospital Complex Emergency Diesel",
+      "volume": 750.0,
+      "type": "diesel",
+      "has_dike": true,
+      "dike_dims": [
+        6.0,
+        5.0
+      ],
+      "site": "Hospital Complex",
+      "id": 8
+    },
+    {
+      "name": "Manufacturing Co Tank 1",
+      "volume": 3500.0,
+      "type": "diesel",
+      "has_dike": false,
+      "site": "Manufacturing Co",
+      "id": 9
+    },
+    {
+      "name": "Power Station Tank 1",
+      "volume": 1800.0,
+      "type": "diesel",
+      "has_dike": true,
+      "dike_dims": [
+        30.0,
+        25.0
+      ],
+      "site": "Power Station",
+      "rect_dims_ft": [
+        15.0,
+        12.0,
+        10.0
+      ],
+      "id": 10
+    }
+  ],
+  "settings": {
+    "headless": false,
+    "screenshot_full_page": true,
+    "excel_path": "/home/crisipo/Apps/explosivos/pipeline_isolated/test_tanks.csv",
+    "excel_sheet": null,
+    "file_type": "csv",
+    "output_pdf": "HUD_ASD_Results.pdf"
+  }
+}

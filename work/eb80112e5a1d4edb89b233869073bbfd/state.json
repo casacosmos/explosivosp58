@@ -1,0 +1,22 @@
+{
+  "kmz": "/home/crisipo/Apps/explosivoseval/pipeline_isolated/work/eb80112e5a1d4edb89b233869073bbfd/CRC Catano 2025 Explosive facilities.kmz",
+  "polygon": "/home/crisipo/Apps/explosivoseval/pipeline_isolated/output/eb80112e5a1d4edb89b233869073bbfd/polygon_1_CRC_Catano_USAR_ESTE_4-1-2025_20250827_003226.txt",
+  "excel_template": "/home/crisipo/Apps/explosivoseval/pipeline_isolated/output/eb80112e5a1d4edb89b233869073bbfd/tank_locations_20250827_003556.xlsx",
+  "kmz_outputs": [
+    "/home/crisipo/Apps/explosivoseval/pipeline_isolated/output/eb80112e5a1d4edb89b233869073bbfd/kmz_parse_result_20250826_235705.json",
+    "/home/crisipo/Apps/explosivoseval/pipeline_isolated/output/eb80112e5a1d4edb89b233869073bbfd/kmz_parse_result_20250827_001648.json",
+    "/home/crisipo/Apps/explosivoseval/pipeline_isolated/output/eb80112e5a1d4edb89b233869073bbfd/kmz_parse_result_20250827_001813.json",
+    "/home/crisipo/Apps/explosivoseval/pipeline_isolated/output/eb80112e5a1d4edb89b233869073bbfd/tank_locations_20250827_003556.xlsx",
+    "/home/crisipo/Apps/explosivoseval/pipeline_isolated/output/eb80112e5a1d4edb89b233869073bbfd/kmz_parse_result_20250826_234704.json",
+    "/home/crisipo/Apps/explosivoseval/pipeline_isolated/output/eb80112e5a1d4edb89b233869073bbfd/kmz_parse_result_20250827_003556.json",
+    "/home/crisipo/Apps/explosivoseval/pipeline_isolated/output/eb80112e5a1d4edb89b233869073bbfd/polygon_1_CRC_Catano_USAR_ESTE_4-1-2025_20250827_003226.txt",
+    "/home/crisipo/Apps/explosivoseval/pipeline_isolated/output/eb80112e5a1d4edb89b233869073bbfd/polygon_2_0.5_Mile_Buffer_Zone_20250827_003226.txt",
+    "/home/crisipo/Apps/explosivoseval/pipeline_isolated/output/eb80112e5a1d4edb89b233869073bbfd/kmz_parse_result_20250827_001601.json",
+    "/home/crisipo/Apps/explosivoseval/pipeline_isolated/output/eb80112e5a1d4edb89b233869073bbfd/polygon_1_CRC_Catano_USAR_ESTE_4-1-2025_20250827_003556.txt",
+    "/home/crisipo/Apps/explosivoseval/pipeline_isolated/output/eb80112e5a1d4edb89b233869073bbfd/tank_locations_20250827_003226.xlsx",
+    "/home/crisipo/Apps/explosivoseval/pipeline_isolated/output/eb80112e5a1d4edb89b233869073bbfd/kmz_parse_result_20250827_003226.json"
+  ],
+  "excel_filled": "/home/crisipo/Apps/explosivoseval/pipeline_isolated/work/eb80112e5a1d4edb89b233869073bbfd/tank_locations_20250827_003556.xlsx",
+  "tank_config": "/home/crisipo/Apps/explosivoseval/pipeline_isolated/work/eb80112e5a1d4edb89b233869073bbfd/tank_config.json",
+  "validated": true
+}

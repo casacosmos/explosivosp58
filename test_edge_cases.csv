@@ -1,0 +1,9 @@
+Cliente,Tanque,Capacidad (gal),Medidas del Tanque,Medidas del Dique,Producto
+,Missing Client,1000,,,Diesel
+Empty Values,,,,,
+Negative Test,-100,-500,,,Invalid
+Multiple Tanks,"Tank A: 500gal, Tank B: 750gal",,,,"Diesel, Gasoline"
+Unicode Test,Tanque Ñoño,1500,,,Combustible Diésel
+Zero Volume,Zero Tank,0,,,Fuel
+Huge Volume,Massive Tank,999999,,,Diesel
+Mixed Units,Unit Test,,10m x 8m x 5m,100ft x 80ft,Gasolina

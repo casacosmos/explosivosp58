@@ -1,0 +1,11 @@
+{
+  "kmz": "/home/crisipo/Apps/explosivoseval/pipeline_isolated/work/test123/Tanques Catano Compliance nombres capacidad galones.kmz",
+  "polygon": "/home/crisipo/Apps/explosivoseval/pipeline_isolated/output/test123/polygon_1_CRC_Catano_USAR_ESTE_4-1-2025_20250827_003009.txt",
+  "excel_template": "/home/crisipo/Apps/explosivoseval/pipeline_isolated/output/test123/tank_locations_20250827_003009.xlsx",
+  "kmz_outputs": [
+    "/home/crisipo/Apps/explosivoseval/pipeline_isolated/output/test123/tank_locations_20250827_003009.xlsx",
+    "/home/crisipo/Apps/explosivoseval/pipeline_isolated/output/test123/kmz_parse_result_20250827_003009.json",
+    "/home/crisipo/Apps/explosivoseval/pipeline_isolated/output/test123/polygon_1_CRC_Catano_USAR_ESTE_4-1-2025_20250827_003009.txt",
+    "/home/crisipo/Apps/explosivoseval/pipeline_isolated/output/test123/polygon_2_0.5_Mile_Buffer_Zone_20250827_003009.txt"
+  ]
+}

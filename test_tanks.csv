@@ -1,0 +1,11 @@
+Client,Tank,Capacity (gal),Tank Measurements,Dike Measurements,Product
+ABC Gas Station,Diesel Tank #1,5000,,,Diesel
+XYZ Fuel Depot,Storage Tank A,,Length 10 ft ; Width 8 ft ; Height 8 ft,Length 20 ft ; Width 15 ft,
+Industrial Park,LPG Tank,2500,,,Liquid Propane
+Marina Services,Gasoline Storage,8000,,5 ft x 4 ft,Gasoline
+Juncos Gas,Tanque Principal,,4ft x 3.5ft x 5ft,4 metros x 3 metros,Diesel
+Chemical Plant,Pressurized Tank 1,1200,120in x 96in x 60in,,Pressurized Gas
+Airport Facility,Fuel Tank North,15000,,,Jet Fuel
+Hospital Complex,Emergency Diesel,750,,Length 6 ft ; Width 5 ft,Diesel
+Manufacturing Co,Tank A-101,3500,,,
+Power Station,Main Storage,,15 x 12 x 10 ft,30ft x 25ft,Diesel

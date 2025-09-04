@@ -1,0 +1,125 @@
+{
+  "tanks": [
+    {
+      "name": "Missing Client Tank 1",
+      "volume": 1000.0,
+      "type": "diesel",
+      "has_dike": false,
+      "site": "Missing Client",
+      "id": 1
+    },
+    {
+      "name": "Empty Values Tank 1",
+      "volume": 90.0,
+      "type": "diesel",
+      "has_dike": false,
+      "site": "Empty Values",
+      "rect_dims_ft": [
+        4.0,
+        3.0,
+        5.0
+      ],
+      "id": 2
+    },
+    {
+      "name": "Empty Values Tank 2",
+      "volume": 90.0,
+      "type": "diesel",
+      "has_dike": false,
+      "site": "Empty Values",
+      "rect_dims_ft": [
+        4.0,
+        3.5,
+        5.0
+      ],
+      "id": 3
+    },
+    {
+      "name": "Empty Values Tank 3",
+      "volume": 90.0,
+      "type": "diesel",
+      "has_dike": false,
+      "site": "Empty Values",
+      "rect_dims_ft": [
+        10.0,
+        3.3333333333333335,
+        5.0
+      ],
+      "id": 4
+    },
+    {
+      "name": "Negative Test Tank 1",
+      "volume": 0.0,
+      "type": "diesel",
+      "has_dike": false,
+      "site": "Negative Test",
+      "notes": "Invalid product type",
+      "id": 5
+    },
+    {
+      "name": "Multiple Tanks Tank 1",
+      "volume": 500.0,
+      "type": "diesel",
+      "has_dike": false,
+      "site": "Multiple Tanks",
+      "id": 6
+    },
+    {
+      "name": "Multiple Tanks Tank 2",
+      "volume": 750.0,
+      "type": "gasoline",
+      "has_dike": false,
+      "site": "Multiple Tanks",
+      "id": 7
+    },
+    {
+      "name": "Unicode Test Tank 1",
+      "volume": 1500.0,
+      "type": "diesel",
+      "has_dike": false,
+      "site": "Unicode Test",
+      "id": 8
+    },
+    {
+      "name": "Zero Tank",
+      "volume": 0.0,
+      "type": "diesel",
+      "has_dike": false,
+      "site": "Zero",
+      "id": 9
+    },
+    {
+      "name": "Huge Volume Tank 1",
+      "volume": 999999.0,
+      "type": "diesel",
+      "has_dike": false,
+      "site": "Huge Volume",
+      "id": 10
+    },
+    {
+      "name": "Mixed Units Tank 1",
+      "volume": 4000.0,
+      "type": "gasoline",
+      "has_dike": true,
+      "dike_dims": [
+        100.0,
+        80.0
+      ],
+      "site": "Mixed Units",
+      "rect_dims_ft": [
+        32.8084,
+        26.2467,
+        16.4042
+      ],
+      "id": 11
+    }
+  ],
+  "settings": {
+    "headless": false,
+    "screenshot_full_page": true,
+    "excel_path": "/home/crisipo/Apps/explosivos/pipeline_isolated/test_edge_cases.csv",
+    "excel_sheet": null,
+    "file_type": "csv",
+    "output_pdf": "HUD_ASD_Results.pdf"
+  }
+}
