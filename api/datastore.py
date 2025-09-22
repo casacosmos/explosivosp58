@@ -19,6 +19,14 @@ class SessionDataStore:
             'session': session_id,
             'tanks': [],
             'meta': {},
+            'field_study': {
+                'date': None,
+                'time': None,
+                'weather': None,
+                'team_lead': None,
+                'team_members': [],
+                'contacts': []  # People consulted at site
+            },
             'updated_at': None,
         }
         self._index_by_name: Dict[str, int] = {}
@@ -63,6 +71,11 @@ class SessionDataStore:
             'closest_point': None,
             'point_location': None,
             'compliance': None,
+            # Field study data
+            'inspected_by': None,  # Person who inspected this tank
+            'inspection_time': None,
+            'contact_person': None,  # Site contact for this tank
+            'field_notes': None,
         }
         self.data['tanks'].append(tank)
         self._reindex()
@@ -143,6 +156,41 @@ class SessionDataStore:
             notes = row.get('Compliance Notes')
             if status or notes:
                 rec['compliance'] = {'status': status, 'notes': notes}
+
+    def update_field_study(self, field_data: Dict[str, Any]):
+        """Update field study metadata"""
+        fs = self.data.setdefault('field_study', {})
+        for key in ['date', 'time', 'weather', 'team_lead']:
+            if key in field_data and field_data[key]:
+                fs[key] = field_data[key]
+
+        # Handle arrays
+        if 'team_members' in field_data:
+            fs['team_members'] = field_data['team_members']
+        if 'contacts' in field_data:
+            fs['contacts'] = field_data['contacts']
+
+        self.save()
+
+    def add_contact(self, contact: Dict[str, Any]):
+        """Add a person consulted during field study"""
+        fs = self.data.setdefault('field_study', {})
+        contacts = fs.setdefault('contacts', [])
+
+        # Required: name, optional: role, company, phone, email, notes
+        new_contact = {
+            'name': contact.get('name'),
+            'role': contact.get('role'),
+            'company': contact.get('company'),
+            'phone': contact.get('phone'),
+            'email': contact.get('email'),
+            'notes': contact.get('notes'),
+            'timestamp': datetime.utcnow().isoformat()
+        }
+
+        contacts.append(new_contact)
+        self.save()
+        return new_contact
 
     def to_dict(self) -> Dict[str, Any]:
         return self.data

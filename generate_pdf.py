@@ -12,8 +12,14 @@ from datetime import datetime
 from pathlib import Path
 import argparse
 
-def get_screenshots(directory=".playwright-mcp", pattern="*.png"):
+def get_screenshots(directory=None, session_id=None, pattern="*.png"):
     """Get all screenshot files from directory"""
+    # Use session-specific directory if session_id provided
+    if session_id:
+        directory = f"work/{session_id}/screenshots"
+    elif directory is None:
+        directory = ".playwright-mcp"  # Fallback to old location
+
     screenshot_dir = Path(directory)
     if not screenshot_dir.exists():
         print(f"❌ Screenshot directory not found: {directory}")

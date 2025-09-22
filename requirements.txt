@@ -1,21 +1,45 @@
-## Minimal requirements for the isolated pipeline
-pandas>=2.0.0
-openpyxl>=3.0.9
-jsonschema>=4.0.0
-numpy>=1.24.0
-requests>=2.28.0
+# Tank Compliance Pipeline - Python Requirements
+# Python 3.8+ required
 
-# Browser automation
-playwright>=1.40.0
+# Core FastAPI and server
+fastapi
+uvicorn[standard]
+gunicorn
+python-multipart
+websockets
+aiofiles
 
-# LLM-assisted Excel parsing
-langchain>=0.1.0
-langchain-openai>=0.0.5
-langgraph>=0.0.20
-openai>=1.0.0
+# Excel processing
+pandas
+openpyxl
+xlrd
+jsonschema
 
-# Utilities
-Pillow>=10.0.0
-fastapi>=0.111.0
-uvicorn>=0.30.0
-python-multipart>=0.0.9
+# PDF generation and image processing
+Pillow
+reportlab
+
+# Browser automation for HUD screenshots
+playwright
+
+# OpenAI and LangChain for Excel to JSON conversion
+openai
+langchain
+langgraph
+langchain-openai
+
+# Data processing
+numpy
+python-dateutil
+scipy
+
+# HTTP client
+requests
+httpx
+
+# JSON handling
+orjson
+
+# Utilities (optional but recommended)
+python-dotenv  # For .env file support if needed
+pydantic  # Data validation

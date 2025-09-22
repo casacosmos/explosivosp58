@@ -263,7 +263,10 @@ class FastHUDProcessor:
         screenshot_path = None
         if tank.get('screenshot', True):
             import os
-            os.makedirs('.playwright-mcp', exist_ok=True)
+            # Use session-specific screenshot directory
+            session_id = tank.get('session_id', 'default')
+            screenshot_dir = f'work/{session_id}/screenshots'
+            os.makedirs(screenshot_dir, exist_ok=True)
             
             # First, try to force checkboxes to show as visually checked
             await self.page.evaluate("""
@@ -298,9 +301,10 @@ class FastHUDProcessor:
             # Small wait for visual update
             await asyncio.sleep(0.3)
             
-            filename = f".playwright-mcp/tank-{tank['id']:02d}-{tank['name'].replace(' ', '-').replace('/', '-')}-{tank['volume']}gal.png"
-            await self.page.screenshot(path=filename, full_page=True)
-            screenshot_path = filename
+            filename = f"tank-{tank['id']:02d}-{tank['name'].replace(' ', '-').replace('/', '-')}-{tank['volume']}gal.png"
+            full_path = f"{screenshot_dir}/{filename}"
+            await self.page.screenshot(path=full_path, full_page=True)
+            screenshot_path = full_path
             logger.info(f"  → Screenshot saved: {filename}")
             
         tank_result = {

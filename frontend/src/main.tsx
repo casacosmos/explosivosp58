@@ -1,5 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { createRoot } from 'react-dom/client'
+import { TankEditor } from './TankEditor'
+import { QuickDataEntry } from './QuickDataEntry'
+import { FieldStudyInfo } from './FieldStudyInfo'
+import { StreamlinedApp } from './StreamlinedApp'
 
 // API base resolution: prefer env; fallback to '/api' under current origin for dev proxy
 const API_BASE: string = (import.meta as any).env?.VITE_API_BASE || `${window.location.origin}/api`
@@ -591,13 +595,68 @@ function FilesList() {
 }
 
 function App() {
+  const [useStreamlined, setUseStreamlined] = useState(true)
   const [validated, setValidated] = useState(false)
+  const [entryMode, setEntryMode] = useState<'quick' | 'table'>('quick')
+  const { session } = useSessionState()
   const onValidated = (ok: boolean) => setValidated(ok)
+
+  // Toggle between streamlined and classic interface
+  if (useStreamlined) {
+    return (
+      <>
+        <div style={{ position: 'fixed', top: 10, right: 10, zIndex: 1000 }}>
+          <button onClick={() => setUseStreamlined(false)} style={{ fontSize: '0.8em' }}>
+            Switch to Classic View
+          </button>
+        </div>
+        <StreamlinedApp apiUrl={apiUrl} wsUrl={wsUrl} />
+      </>
+    )
+  }
+
   return (
     <div style={{ maxWidth: 1000, margin: '0 auto', fontFamily: 'system-ui, sans-serif' }}>
+      <div style={{ position: 'fixed', top: 10, right: 10, zIndex: 1000 }}>
+        <button onClick={() => setUseStreamlined(true)} style={{ fontSize: '0.8em' }}>
+          Switch to Streamlined View
+        </button>
+      </div>
       <h1>HUD Pipeline</h1>
       <KmzParse />
       <ManualExcelStep />
+
+      {/* Field Study Information */}
+      <FieldStudyInfo session={session} apiUrl={apiUrl} />
+
+      {/* Data Entry Mode Selector */}
+      <Section title="Data Entry from Field Notes">
+        <div style={{ marginBottom: 16 }}>
+          <label style={{ marginRight: 16 }}>
+            <input
+              type="radio"
+              checked={entryMode === 'quick'}
+              onChange={() => setEntryMode('quick')}
+            />
+            <span style={{ marginLeft: 8 }}>⚡ Quick Entry (Recommended for handwritten notes)</span>
+          </label>
+          <label>
+            <input
+              type="radio"
+              checked={entryMode === 'table'}
+              onChange={() => setEntryMode('table')}
+            />
+            <span style={{ marginLeft: 8 }}>📊 Table Editor (Full view)</span>
+          </label>
+        </div>
+
+        {entryMode === 'quick' ? (
+          <QuickDataEntry session={session} apiUrl={apiUrl} />
+        ) : (
+          <TankEditor session={session} apiUrl={apiUrl} onUpdate={() => window.location.reload()} />
+        )}
+      </Section>
+
       <ExcelToJson onValidated={onValidated} />
       <HudRun enabled={validated} />
       <UpdateExcel />

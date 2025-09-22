@@ -12,6 +12,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, JSONResponse
 
 import subprocess
+from api.datastore import load_store
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT_ROOT = ROOT / "output"
@@ -1056,6 +1057,171 @@ def excel_preview(session: str, limit: int = 25):
         return _preview_excel(Path(ex), limit)
     except Exception as e:
         raise HTTPException(status_code=500, detail=f'preview failed: {e}')
+
+
+# Tank data management endpoints
+@app.get("/session/{session}/tanks")
+def get_tanks(session: str):
+    """Get all tanks from the datastore"""
+    store = load_store(WORK_ROOT, session)
+    if not store:
+        raise HTTPException(status_code=404, detail='Session not found')
+    return JSONResponse({"tanks": store.data.get('tanks', [])})
+
+
+@app.post("/session/{session}/tank")
+def add_tank(session: str, tank: dict):
+    """Add a new tank to the datastore"""
+    store = load_store(WORK_ROOT, session)
+    if not store:
+        raise HTTPException(status_code=404, detail='Session not found')
+
+    name = tank.get('name', f"Tank-{len(store.data.get('tanks', [])) + 1}")
+    new_tank = store._upsert_tank(name)
+
+    # Update with provided data
+    for key in ['volume_gal', 'type', 'has_dike', 'dike_dims', 'measurements', 'coords']:
+        if key in tank:
+            new_tank[key] = tank[key]
+
+    store.save()
+    return JSONResponse({"status": "created", "tank": new_tank})
+
+
+@app.put("/session/{session}/tank/{tank_name}")
+def update_tank(session: str, tank_name: str, updates: dict):
+    """Update an existing tank in the datastore"""
+    store = load_store(WORK_ROOT, session)
+    if not store:
+        raise HTTPException(status_code=404, detail='Session not found')
+
+    # Find tank by name
+    tank = None
+    for t in store.data.get('tanks', []):
+        if t.get('name', '').lower() == tank_name.lower():
+            tank = t
+            break
+
+    if not tank:
+        raise HTTPException(status_code=404, detail='Tank not found')
+
+    # Update fields
+    for key in ['volume_gal', 'type', 'has_dike', 'dike_dims', 'measurements', 'coords']:
+        if key in updates:
+            tank[key] = updates[key]
+
+    store.save()
+    return JSONResponse({"status": "updated", "tank": tank})
+
+
+@app.delete("/session/{session}/tank/{tank_name}")
+def delete_tank(session: str, tank_name: str):
+    """Delete a tank from the datastore"""
+    store = load_store(WORK_ROOT, session)
+    if not store:
+        raise HTTPException(status_code=404, detail='Session not found')
+
+    # Find and remove tank
+    tanks = store.data.get('tanks', [])
+    for i, t in enumerate(tanks):
+        if t.get('name', '').lower() == tank_name.lower():
+            removed = tanks.pop(i)
+            store.data['tanks'] = tanks
+            store._reindex()
+            store.save()
+            return JSONResponse({"status": "deleted", "tank": removed})
+
+    raise HTTPException(status_code=404, detail='Tank not found')
+
+
+@app.post("/session/{session}/tanks/bulk_update")
+def bulk_update_tanks(session: str, tanks: list):
+    """Update multiple tanks at once"""
+    store = load_store(WORK_ROOT, session)
+    if not store:
+        raise HTTPException(status_code=404, detail='Session not found')
+
+    updated = []
+    for tank_data in tanks:
+        name = tank_data.get('name')
+        if not name:
+            continue
+
+        tank = store._upsert_tank(name)
+        # Include field study fields
+        for key in ['volume_gal', 'type', 'has_dike', 'dike_dims', 'measurements', 'coords',
+                   'inspected_by', 'inspection_time', 'contact_person', 'field_notes']:
+            if key in tank_data:
+                tank[key] = tank_data[key]
+        updated.append(tank)
+
+    store.save()
+    return JSONResponse({"status": "updated", "count": len(updated), "tanks": updated})
+
+
+# Field study endpoints
+@app.get("/session/{session}/field_study")
+def get_field_study(session: str):
+    """Get field study metadata"""
+    store = load_store(WORK_ROOT, session)
+    if not store:
+        raise HTTPException(status_code=404, detail='Session not found')
+    return JSONResponse(store.data.get('field_study', {}))
+
+
+@app.put("/session/{session}/field_study")
+def update_field_study(session: str, field_data: dict):
+    """Update field study metadata"""
+    store = load_store(WORK_ROOT, session)
+    if not store:
+        raise HTTPException(status_code=404, detail='Session not found')
+
+    store.update_field_study(field_data)
+    return JSONResponse({"status": "updated", "field_study": store.data.get('field_study')})
+
+
+@app.post("/session/{session}/contact")
+def add_contact(session: str, contact: dict):
+    """Add a person consulted during field study"""
+    store = load_store(WORK_ROOT, session)
+    if not store:
+        raise HTTPException(status_code=404, detail='Session not found')
+
+    if not contact.get('name'):
+        raise HTTPException(status_code=400, detail='Contact name required')
+
+    new_contact = store.add_contact(contact)
+    return JSONResponse({"status": "added", "contact": new_contact})
+
+
+@app.get("/session/{session}/contacts")
+def get_contacts(session: str):
+    """Get all contacts from field study"""
+    store = load_store(WORK_ROOT, session)
+    if not store:
+        raise HTTPException(status_code=404, detail='Session not found')
+
+    fs = store.data.get('field_study', {})
+    return JSONResponse({"contacts": fs.get('contacts', [])})
+
+
+@app.delete("/session/{session}/contact/{contact_name}")
+def delete_contact(session: str, contact_name: str):
+    """Delete a contact"""
+    store = load_store(WORK_ROOT, session)
+    if not store:
+        raise HTTPException(status_code=404, detail='Session not found')
+
+    fs = store.data.get('field_study', {})
+    contacts = fs.get('contacts', [])
+
+    for i, c in enumerate(contacts):
+        if c.get('name', '').lower() == contact_name.lower():
+            removed = contacts.pop(i)
+            store.save()
+            return JSONResponse({"status": "deleted", "contact": removed})
+
+    raise HTTPException(status_code=404, detail='Contact not found')
 
 
 @app.post("/excel/normalize")

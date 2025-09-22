@@ -1,0 +1,44 @@
+# Systemd service file for Tank Pipeline Backend
+# Copy to /etc/systemd/system/tank-pipeline.service
+#
+# Setup:
+#   sudo cp tank-pipeline.service /etc/systemd/system/
+#   sudo systemctl daemon-reload
+#   sudo systemctl enable tank-pipeline
+#   sudo systemctl start tank-pipeline
+#
+# Set API key in /etc/environment:
+#   echo 'OPENAI_API_KEY="your-key-here"' | sudo tee -a /etc/environment
+
+[Unit]
+Description=Tank Compliance Pipeline Backend
+After=network.target
+
+[Service]
+Type=simple
+User=avapc
+Group=avapc
+WorkingDirectory=/home/avapc/Appspc/explosivos/pipeline_isolated
+
+# Environment variables (systemd reads from /etc/environment)
+Environment="PORT=8000"
+Environment="HOST=0.0.0.0"
+Environment="WORKERS=2"
+Environment="RELOAD=false"
+
+# The API key should be set in /etc/environment for security
+EnvironmentFile=/etc/environment
+
+# Start command
+ExecStart=/usr/bin/python3 /home/avapc/Appspc/explosivos/pipeline_isolated/start_server.py
+
+# Restart policy
+Restart=on-failure
+RestartSec=5
+
+# Logging
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
