@@ -1,0 +1,123 @@
+{
+  "kmz_file": "/home/avapc/Appspc/explosivos/pipeline_isolated/JUNCOS HUELLA EXPLOSIVOS SITES_buffer1miles.kmz",
+  "total_sites": 19,
+  "polygon_used": "CRC Juncos 2025 USAR ESTE",
+  "sites_with_distances": 19,
+  "output_excel": "/home/avapc/Appspc/explosivos/pipeline_isolated/mcp_tank_compliance/tank_compliance_data.xlsx",
+  "sites": [
+    {
+      "name": "CDT Juncos",
+      "latitude": 18.23028096658137,
+      "longitude": -65.92012565070284,
+      "distance_feet": 1855.72
+    },
+    {
+      "name": "Juegos Caray",
+      "latitude": 18.23059330310288,
+      "longitude": -65.920826679755,
+      "distance_feet": 1673.38
+    },
+    {
+      "name": "Esc. Elemental Jose A. Lopez Castro",
+      "latitude": 18.22678284590885,
+      "longitude": -65.92983821886769,
+      "distance_feet": 1461.48
+    },
+    {
+      "name": "Gnerador Estadio Mariano \"Nini\" Meaux",
+      "latitude": 18.23103118721735,
+      "longitude": -65.92608934711319,
+      "distance_feet": 913.27
+    },
+    {
+      "name": "Tanques Colegio Bautista de Juncos",
+      "latitude": 18.23304821443129,
+      "longitude": -65.9212120607689,
+      "distance_feet": 2120.86
+    },
+    {
+      "name": "Generador nited States Postal Service",
+      "latitude": 18.23443029072944,
+      "longitude": -65.92315984916392,
+      "distance_feet": 2228.91
+    },
+    {
+      "name": "Generador Parking",
+      "latitude": 18.23110865545947,
+      "longitude": -65.92708265298572,
+      "distance_feet": 1032.91
+    },
+    {
+      "name": "Coliseo Rafael G Amalbert",
+      "latitude": 18.2318964330818,
+      "longitude": -65.92651393145161,
+      "distance_feet": 1246.33
+    },
+    {
+      "name": "Garden China",
+      "latitude": 18.23068979892739,
+      "longitude": -65.92049560989655,
+      "distance_feet": 1792.34
+    },
+    {
+      "name": "Funeraria Miranda",
+      "latitude": 18.2297382293247,
+      "longitude": -65.92221014448562,
+      "distance_feet": 1108.24
+    },
+    {
+      "name": "Tanque Attitude wrestling Academy",
+      "latitude": 18.22802028736139,
+      "longitude": -65.92505177124286,
+      "distance_feet": 32.42
+    },
+    {
+      "name": "Generador Biblioteca Jose M gallardo",
+      "latitude": 18.22796125395976,
+      "longitude": -65.92420927298919,
+      "distance_feet": 324.69
+    },
+    {
+      "name": "Polic\u00eda Estatal",
+      "latitude": 18.23199559657795,
+      "longitude": -65.9202885259326,
+      "distance_feet": 2096.42
+    },
+    {
+      "name": "Coliseo Box\u00edstico Juncos",
+      "latitude": 18.23240726132788,
+      "longitude": -65.92683032144407,
+      "distance_feet": 1451.28
+    },
+    {
+      "name": "Sal\u00f3n de actividades El Valenciano",
+      "latitude": 18.23190836642898,
+      "longitude": -65.92747110862301,
+      "distance_feet": 1353.36
+    },
+    {
+      "name": "PRASA Generador",
+      "latitude": 18.22780857533654,
+      "longitude": -65.92639935649142,
+      "distance_feet": 212.25
+    },
+    {
+      "name": "Centro de Cuidado Diurno de Valenciano",
+      "latitude": 18.22907999138595,
+      "longitude": -65.92341997361235,
+      "distance_feet": 632.78
+    },
+    {
+      "name": "Iglesia Mar Azul Este",
+      "latitude": 18.23000387329657,
+      "longitude": -65.92158841640794,
+      "distance_feet": 1344.62
+    },
+    {
+      "name": "Funeraria Shalom Juncos",
+      "latitude": 18.22797017574248,
+      "longitude": -65.9283734051577,
+      "distance_feet": 892.18
+    }
+  ]
+}

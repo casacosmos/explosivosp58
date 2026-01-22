@@ -1,0 +1,302 @@
+[
+  {
+    "tank_id": 1,
+    "name": "Diesel Tank TK-001 - Supply Fuel to Emergency Generators",
+    "volume": 8000.0,
+    "type": "diesel",
+    "has_dike": true,
+    "results": {
+      "asdppu": "657.70",
+      "asdbpu": "131.49",
+      "asdpnpd": "657.70",
+      "asdbnpd": "657.70",
+      "volume": "8000",
+      "debug": {
+        "volume": "8000",
+        "ppuResult": "657.70",
+        "bpuResult": "131.49"
+      }
+    },
+    "screenshot": "work/default/screenshots/tank-01-Diesel-Tank-TK-001---Supply-Fuel-to-Emergency-Generators-8000.0gal.png"
+  },
+  {
+    "tank_id": 2,
+    "name": "Diesel Tank TK-002 - Supply Fuel to Emergency Generators",
+    "volume": 8000.0,
+    "type": "diesel",
+    "has_dike": true,
+    "results": {
+      "asdppu": "657.70",
+      "asdbpu": "131.49",
+      "asdpnpd": "657.70",
+      "asdbnpd": "657.70",
+      "volume": "8000",
+      "debug": {
+        "volume": "8000",
+        "ppuResult": "657.70",
+        "bpuResult": "131.49"
+      }
+    },
+    "screenshot": "work/default/screenshots/tank-02-Diesel-Tank-TK-002---Supply-Fuel-to-Emergency-Generators-8000.0gal.png"
+  },
+  {
+    "tank_id": 3,
+    "name": "Diesel Tank TK-003 - Supply Fuel to Emergency Generators",
+    "volume": 16000.0,
+    "type": "diesel",
+    "has_dike": true,
+    "results": {
+      "asdppu": "877.88",
+      "asdbpu": "181.16",
+      "asdpnpd": "877.88",
+      "asdbnpd": "877.88",
+      "volume": "16000",
+      "debug": {
+        "volume": "16000",
+        "ppuResult": "877.88",
+        "bpuResult": "181.16"
+      }
+    },
+    "screenshot": "work/default/screenshots/tank-03-Diesel-Tank-TK-003---Supply-Fuel-to-Emergency-Generators-16000.0gal.png"
+  },
+  {
+    "tank_id": 4,
+    "name": "Diesel-Day-Tank",
+    "volume": 500.0,
+    "type": "diesel",
+    "has_dike": true,
+    "results": {
+      "asdppu": "207.20",
+      "asdbpu": "36.50",
+      "asdpnpd": "207.20",
+      "asdbnpd": "207.20",
+      "volume": "500",
+      "debug": {
+        "volume": "500",
+        "ppuResult": "207.20",
+        "bpuResult": "36.50"
+      }
+    },
+    "screenshot": "work/default/screenshots/tank-04-Diesel-Day-Tank-500.0gal.png"
+  },
+  {
+    "tank_id": 5,
+    "name": "Diesel Day Tank of Emergency Generator #4 - Supply Fuel to Fire Pump",
+    "volume": 800.0,
+    "type": "diesel",
+    "has_dike": true,
+    "results": {
+      "asdppu": "252.02",
+      "asdbpu": "45.35",
+      "asdpnpd": "252.02",
+      "asdbnpd": "252.02",
+      "volume": "800",
+      "debug": {
+        "volume": "800",
+        "ppuResult": "252.02",
+        "bpuResult": "45.35"
+      }
+    },
+    "screenshot": "work/default/screenshots/tank-05-Diesel-Day-Tank-of-Emergency-Generator-#4---Supply-Fuel-to-Fire-Pump-800.0gal.png"
+  },
+  {
+    "tank_id": 6,
+    "name": "Oil-Drums-Storage",
+    "volume": 5.0,
+    "type": "diesel",
+    "has_dike": false,
+    "results": {
+      "asdppu": "30.42",
+      "asdbpu": "4.34",
+      "asdpnpd": "30.42",
+      "asdbnpd": "30.42",
+      "volume": "5",
+      "debug": {
+        "volume": "5",
+        "ppuResult": "30.42",
+        "bpuResult": "4.34"
+      }
+    },
+    "screenshot": "work/default/screenshots/tank-06-Oil-Drums-Storage-5.0gal.png"
+  },
+  {
+    "tank_id": 7,
+    "name": "Cafeteria-Spent-Vege",
+    "volume": 2.0,
+    "type": "diesel",
+    "has_dike": false,
+    "results": {
+      "asdppu": "20.77",
+      "asdbpu": "2.84",
+      "asdpnpd": "20.77",
+      "asdbnpd": "20.77",
+      "volume": "2",
+      "debug": {
+        "volume": "2",
+        "ppuResult": "20.77",
+        "bpuResult": "2.84"
+      }
+    },
+    "screenshot": "work/default/screenshots/tank-07-Cafeteria-Spent-Vege-2.0gal.png"
+  },
+  {
+    "tank_id": 8,
+    "name": "Electrical Substation #2",
+    "volume": 158.0,
+    "type": "diesel",
+    "has_dike": true,
+    "results": {
+      "asdppu": "128.22",
+      "asdbpu": "21.43",
+      "asdpnpd": "128.22",
+      "asdbnpd": "128.22",
+      "volume": "158",
+      "debug": {
+        "volume": "158",
+        "ppuResult": "128.22",
+        "bpuResult": "21.43"
+      }
+    },
+    "screenshot": "work/default/screenshots/tank-08-Electrical-Substation-#2-158.0gal.png"
+  },
+  {
+    "tank_id": 9,
+    "name": "Electrical Substation (2,000 kVA)",
+    "volume": 523.0,
+    "type": "diesel",
+    "has_dike": true,
+    "results": {
+      "asdppu": "211.12",
+      "asdbpu": "37.26",
+      "asdpnpd": "211.12",
+      "asdbnpd": "211.12",
+      "volume": "523",
+      "debug": {
+        "volume": "523",
+        "ppuResult": "211.12",
+        "bpuResult": "37.26"
+      }
+    },
+    "screenshot": "work/default/screenshots/tank-09-Electrical-Substation-(2,000-kVA)-523.0gal.png"
+  },
+  {
+    "tank_id": 10,
+    "name": "Electrical-Substatio",
+    "volume": 1204.0,
+    "type": "diesel",
+    "has_dike": true,
+    "results": {
+      "asdppu": "298.81",
+      "asdbpu": "54.79",
+      "asdpnpd": "298.81",
+      "asdbnpd": "298.81",
+      "volume": "1204",
+      "debug": {
+        "volume": "1204",
+        "ppuResult": "298.81",
+        "bpuResult": "54.79"
+      }
+    },
+    "screenshot": "work/default/screenshots/tank-10-Electrical-Substatio-1204.0gal.png"
+  },
+  {
+    "tank_id": 11,
+    "name": "Engines of Emergency Generators #1, #2, #3",
+    "volume": 75.0,
+    "type": "diesel",
+    "has_dike": true,
+    "results": {
+      "asdppu": "94.00",
+      "asdbpu": "15.18",
+      "asdpnpd": "94.00",
+      "asdbnpd": "94.00",
+      "volume": "75",
+      "debug": {
+        "volume": "75",
+        "ppuResult": "94.00",
+        "bpuResult": "15.18"
+      }
+    },
+    "screenshot": "work/default/screenshots/tank-11-Engines-of-Emergency-Generators-#1,-#2,-#3-75.0gal.png"
+  },
+  {
+    "tank_id": 12,
+    "name": "Engine-of-the",
+    "volume": 2.0,
+    "type": "diesel",
+    "has_dike": false,
+    "results": {
+      "asdppu": "20.77",
+      "asdbpu": "2.84",
+      "asdpnpd": "20.77",
+      "asdbnpd": "20.77",
+      "volume": "2",
+      "debug": {
+        "volume": "2",
+        "ppuResult": "20.77",
+        "bpuResult": "2.84"
+      }
+    },
+    "screenshot": "work/default/screenshots/tank-12-Engine-of-the-2.0gal.png"
+  },
+  {
+    "tank_id": 13,
+    "name": "Two-Waste-Compactors",
+    "volume": 25.0,
+    "type": "diesel",
+    "has_dike": true,
+    "results": {
+      "asdppu": "59.48",
+      "asdbpu": "9.14",
+      "asdpnpd": "59.48",
+      "asdbnpd": "59.48",
+      "volume": "25",
+      "debug": {
+        "volume": "25",
+        "ppuResult": "59.48",
+        "bpuResult": "9.14"
+      }
+    },
+    "screenshot": "work/default/screenshots/tank-13-Two-Waste-Compactors-25.0gal.png"
+  },
+  {
+    "tank_id": 14,
+    "name": "Cardboard-Compactor",
+    "volume": 20.0,
+    "type": "diesel",
+    "has_dike": false,
+    "results": {
+      "asdppu": "54.20",
+      "asdbpu": "8.24",
+      "asdpnpd": "54.20",
+      "asdbnpd": "54.20",
+      "volume": "20",
+      "debug": {
+        "volume": "20",
+        "ppuResult": "54.20",
+        "bpuResult": "8.24"
+      }
+    },
+    "screenshot": "work/default/screenshots/tank-14-Cardboard-Compactor-20.0gal.png"
+  },
+  {
+    "tank_id": 15,
+    "name": "Several-drums-in",
+    "volume": 55.0,
+    "type": "fuel",
+    "has_dike": true,
+    "results": {
+      "asdppu": "82.61",
+      "asdbpu": "13.15",
+      "asdpnpd": "82.61",
+      "asdbnpd": "82.61",
+      "volume": "55",
+      "debug": {
+        "volume": "55",
+        "ppuResult": "82.61",
+        "bpuResult": "13.15"
+      }
+    },
+    "screenshot": "work/default/screenshots/tank-15-Several-drums-in-55.0gal.png"
+  }
+]

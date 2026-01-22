@@ -1,0 +1,27 @@
+# Core Dependencies for HUD Processing Pipeline
+# =============================================
+
+# Data Processing
+pandas>=2.0.0
+openpyxl>=3.0.0           # Excel file support
+xlsxwriter>=3.0.0         # Excel writing
+
+# Web Automation (for HUD processing)
+playwright>=1.40.0        # Browser automation for HUD website
+
+# PDF Generation
+Pillow>=10.0.0           # Image processing for PDF generation
+pypdf>=3.0.0             # PDF manipulation
+
+# Data Validation
+pydantic>=2.0.0          # Data validation and serialization
+typing-extensions>=4.0.0  # Enhanced typing support
+
+# Optional: LangChain/LangGraph support
+# Uncomment if using AI-enhanced parsing
+# langchain>=0.1.0
+# langchain-openai>=0.0.5
+# langgraph>=0.0.20
+
+# Optional: API support
+# python-dotenv>=1.0.0    # For environment variables (API keys)

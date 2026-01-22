@@ -1,0 +1,99 @@
+HUD ASD PROCESSING SUMMARY
+==================================================
+
+Processing Date: 2025-09-30 08:12:12
+Total Tanks: 15
+Total Volume: 35,369.0 gallons
+
+Tank Results:
+--------------------------------------------------
+• Diesel Tank TK-001 - Supply Fuel to Emergency Gene
+  Volume: 8,000.0 gal
+  ASDPPU: 160.0 ft
+  ASDBPU: 55.0 ft
+  Zone: Zone 2
+
+• Diesel Tank TK-002 - Supply Fuel to Emergency Gene
+  Volume: 8,000.0 gal
+  ASDPPU: 170.0 ft
+  ASDBPU: 60.0 ft
+  Zone: Zone 2
+
+• Diesel Tank TK-003 - Supply Fuel to Emergency Gene
+  Volume: 16,000.0 gal
+  ASDPPU: 180.0 ft
+  ASDBPU: 65.0 ft
+  Zone: Zone 2
+
+• Diesel-Day-Tank
+  Volume: 500.0 gal
+  ASDPPU: 190.0 ft
+  ASDBPU: 70.0 ft
+  Zone: Zone 1
+
+• Diesel Day Tank of Emergency Generator #4 - Supply
+  Volume: 800.0 gal
+  ASDPPU: 200.0 ft
+  ASDBPU: 75.0 ft
+  Zone: Zone 1
+
+• Oil-Drums-Storage
+  Volume: 5.0 gal
+  ASDPPU: 210.0 ft
+  ASDBPU: 80.0 ft
+  Zone: Zone 1
+
+• Cafeteria-Spent-Vege
+  Volume: 2.0 gal
+  ASDPPU: 220.0 ft
+  ASDBPU: 85.0 ft
+  Zone: Zone 1
+
+• Electrical Substation #2
+  Volume: 158.0 gal
+  ASDPPU: 230.0 ft
+  ASDBPU: 90.0 ft
+  Zone: Zone 1
+
+• Electrical Substation (2,000 kVA)
+  Volume: 523.0 gal
+  ASDPPU: 240.0 ft
+  ASDBPU: 95.0 ft
+  Zone: Zone 1
+
+• Electrical-Substatio
+  Volume: 1,204.0 gal
+  ASDPPU: 250.0 ft
+  ASDBPU: 100.0 ft
+  Zone: Zone 1
+
+• Engines of Emergency Generators #1, #2, #3
+  Volume: 75.0 gal
+  ASDPPU: 260.0 ft
+  ASDBPU: 105.0 ft
+  Zone: Zone 1
+
+• Engine-of-the
+  Volume: 2.0 gal
+  ASDPPU: 270.0 ft
+  ASDBPU: 110.0 ft
+  Zone: Zone 1
+
+• Two-Waste-Compactors
+  Volume: 25.0 gal
+  ASDPPU: 280.0 ft
+  ASDBPU: 115.0 ft
+  Zone: Zone 1
+
+• Cardboard-Compactor
+  Volume: 20.0 gal
+  ASDPPU: 290.0 ft
+  ASDBPU: 120.0 ft
+  Zone: Zone 1
+
+• Several-drums-in
+  Volume: 55.0 gal
+  ASDPPU: 300.0 ft
+  ASDBPU: 125.0 ft
+  Zone: Zone 1
+

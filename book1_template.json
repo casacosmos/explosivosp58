@@ -1,0 +1,227 @@
+{
+  "source_file": "/home/avapc/Appspc/agenttanks/Book 1.xlsx",
+  "tank_count": 15,
+  "tanks": [
+    {
+      "tank_id": "TK-001",
+      "tank_use": "Diesel Tank TK-001 - Supply Fuel to Emergency Generators",
+      "capacity_gallons": 8000.0,
+      "secondary_containment": "Dike 03: 14,425 gal",
+      "location": {
+        "description": "Adjacent to the Emergency Power Generators #1, #2, #3",
+        "latitude": null,
+        "longitude": null
+      },
+      "asdppu": null,
+      "row_number": 2,
+      "status": "active"
+    },
+    {
+      "tank_id": "TK-002",
+      "tank_use": "Diesel Tank TK-002 - Supply Fuel to Emergency Generators",
+      "capacity_gallons": 8000.0,
+      "secondary_containment": "Dike 03: 14,425 gal",
+      "location": {
+        "description": "Adjacent to the Emergency Power Generators #1, #2, #3",
+        "latitude": null,
+        "longitude": null
+      },
+      "asdppu": null,
+      "row_number": 3,
+      "status": "active"
+    },
+    {
+      "tank_id": "TK-003",
+      "tank_use": "Diesel Tank TK-003 - Supply Fuel to Emergency Generators",
+      "capacity_gallons": 16000.0,
+      "secondary_containment": "Double wall tank. Also provided with Dike 04: 7,375 gal.",
+      "location": {
+        "description": "Adjacent to the Emergency Power Generators #1, #2, #3",
+        "latitude": null,
+        "longitude": null
+      },
+      "asdppu": null,
+      "row_number": 4,
+      "status": "active"
+    },
+    {
+      "tank_id": "Diesel-Day-Tank",
+      "tank_use": "Diesel Day Tank of Fire Pump - Supply Fuel to Fire Pump",
+      "capacity_gallons": 500.0,
+      "secondary_containment": "Dike 05: 845 gal",
+      "location": {
+        "description": "Adjacent to the Fire Pump House",
+        "latitude": null,
+        "longitude": null
+      },
+      "asdppu": null,
+      "row_number": 5,
+      "status": "active"
+    },
+    {
+      "tank_id": "4",
+      "tank_use": "Diesel Day Tank of Emergency Generator #4 - Supply Fuel to Fire Pump",
+      "capacity_gallons": 800.0,
+      "secondary_containment": "Dike 10: 4,452 gal",
+      "location": {
+        "description": "Gen #4 Adjacent to Waste Compactors",
+        "latitude": null,
+        "longitude": null
+      },
+      "asdppu": null,
+      "row_number": 6,
+      "status": "active"
+    },
+    {
+      "tank_id": "Oil-Drums-Storage",
+      "tank_use": "Oil Drums Storage Area - Oil Storage for Production Areas",
+      "capacity_gallons": 5.0,
+      "secondary_containment": "Drums located indoor in spill pallets.",
+      "location": {
+        "description": "Inside Chiller Building",
+        "latitude": null,
+        "longitude": null
+      },
+      "asdppu": null,
+      "row_number": 8,
+      "status": "active"
+    },
+    {
+      "tank_id": "Cafeteria-Spent-Vege",
+      "tank_use": "Cafeteria Spent Vegetable Oil Drums Storage Area",
+      "capacity_gallons": 2.0,
+      "secondary_containment": "Drums located outdoor within overpack drums",
+      "location": {
+        "description": "Adjacent to Cafeteria",
+        "latitude": null,
+        "longitude": null
+      },
+      "asdppu": null,
+      "row_number": 9,
+      "status": "active"
+    },
+    {
+      "tank_id": "2",
+      "tank_use": "Electrical Substation #2",
+      "capacity_gallons": 158.0,
+      "secondary_containment": "Dike 6A. 310 gal",
+      "location": {
+        "description": "Next to the Cooling Towers",
+        "latitude": null,
+        "longitude": null
+      },
+      "asdppu": null,
+      "row_number": 10,
+      "status": "active"
+    },
+    {
+      "tank_id": "Electrical-Substatio",
+      "tank_use": "Electrical Substation (2,000 kVA)",
+      "capacity_gallons": 523.0,
+      "secondary_containment": "Dike 03. 14,425 gal.",
+      "location": {
+        "description": "Adjacent the Emergency Power Generators",
+        "latitude": null,
+        "longitude": null
+      },
+      "asdppu": null,
+      "row_number": 12,
+      "status": "active"
+    },
+    {
+      "tank_id": "Electrical-Substatio",
+      "tank_use": "Electrical Substation (38,000 kVA)",
+      "capacity_gallons": 1204.0,
+      "secondary_containment": "Dike 01: 2,800 gal.",
+      "location": {
+        "description": "Adjacent the Emergency Power Generators",
+        "latitude": null,
+        "longitude": null
+      },
+      "asdppu": null,
+      "row_number": 13,
+      "status": "active"
+    },
+    {
+      "tank_id": "1",
+      "tank_use": "Engines of Emergency Generators #1, #2, #3",
+      "capacity_gallons": 75.0,
+      "secondary_containment": "Dike 03: 14,425 gal",
+      "location": {
+        "description": "Gen #1 and #2 in Dike 03. Gen #3 in Dike 04",
+        "latitude": null,
+        "longitude": null
+      },
+      "asdppu": null,
+      "row_number": 14,
+      "status": "active"
+    },
+    {
+      "tank_id": "Engine-of-the",
+      "tank_use": "Engine of the Fire Pump",
+      "capacity_gallons": 2.0,
+      "secondary_containment": "The Fire Pump Room is Provided with Concrete Berms in the Doors.",
+      "location": {
+        "description": "Fire Pump House",
+        "latitude": null,
+        "longitude": null
+      },
+      "asdppu": null,
+      "row_number": 16,
+      "status": "active"
+    },
+    {
+      "tank_id": "Two-Waste-Compactors",
+      "tank_use": "Two Waste Compactors - Plastic and Domestic Waste Compactors",
+      "capacity_gallons": 25.0,
+      "secondary_containment": "Metal dikes 33 gal",
+      "location": {
+        "description": "Front of 90-day Satellite Area",
+        "latitude": null,
+        "longitude": null
+      },
+      "asdppu": null,
+      "row_number": 17,
+      "status": "active"
+    },
+    {
+      "tank_id": "Cardboard-Compactor",
+      "tank_use": "Cardboard Compactor",
+      "capacity_gallons": 20.0,
+      "secondary_containment": "Active Containment (Spill Kits and Response Personnel)",
+      "location": {
+        "description": "Front of 90-day Satellite Area",
+        "latitude": null,
+        "longitude": null
+      },
+      "asdppu": null,
+      "row_number": 18,
+      "status": "active"
+    },
+    {
+      "tank_id": "Several-drums-in",
+      "tank_use": "Several drums in the Fuel/Oil Drum Storage Enclosure \u2013 12 drums, & 25 pots approximately.",
+      "capacity_gallons": 55.0,
+      "secondary_containment": "Containment Sump Pit",
+      "location": {
+        "description": "Next to the Cooling Towers",
+        "latitude": null,
+        "longitude": null
+      },
+      "asdppu": null,
+      "row_number": 19,
+      "status": "active"
+    }
+  ],
+  "metadata": {
+    "parsed_date": "2025-09-30T08:06:55.844819",
+    "original_columns": [
+      "Tank Use",
+      "Capacity (gal)",
+      "Secondary containments",
+      "Location",
+      "ASDPPU"
+    ],
+    "total_capacity_gallons": 35369.0
+  }
+}

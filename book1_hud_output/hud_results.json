@@ -1,0 +1,236 @@
+{
+  "processing_date": "2025-09-30T08:12:12.431539",
+  "tank_count": 15,
+  "results": [
+    {
+      "tank_id": 1,
+      "name": "Diesel Tank TK-001 - Supply Fuel to Emergency Generators",
+      "volume_gallons": 8000.0,
+      "type": "diesel",
+      "has_dike": true,
+      "asd_results": {
+        "ASDPPU": "160.0 ft",
+        "ASDBPU": "55.0 ft",
+        "status": "Calculated",
+        "zone": "Zone 2"
+      },
+      "processed_at": "2025-09-30T08:12:12.431415",
+      "screenshot": "tank_1_hud_screenshot.png"
+    },
+    {
+      "tank_id": 2,
+      "name": "Diesel Tank TK-002 - Supply Fuel to Emergency Generators",
+      "volume_gallons": 8000.0,
+      "type": "diesel",
+      "has_dike": true,
+      "asd_results": {
+        "ASDPPU": "170.0 ft",
+        "ASDBPU": "60.0 ft",
+        "status": "Calculated",
+        "zone": "Zone 2"
+      },
+      "processed_at": "2025-09-30T08:12:12.431431",
+      "screenshot": "tank_2_hud_screenshot.png"
+    },
+    {
+      "tank_id": 3,
+      "name": "Diesel Tank TK-003 - Supply Fuel to Emergency Generators",
+      "volume_gallons": 16000.0,
+      "type": "diesel",
+      "has_dike": true,
+      "asd_results": {
+        "ASDPPU": "180.0 ft",
+        "ASDBPU": "65.0 ft",
+        "status": "Calculated",
+        "zone": "Zone 2"
+      },
+      "processed_at": "2025-09-30T08:12:12.431436",
+      "screenshot": "tank_3_hud_screenshot.png"
+    },
+    {
+      "tank_id": 4,
+      "name": "Diesel-Day-Tank",
+      "volume_gallons": 500.0,
+      "type": "diesel",
+      "has_dike": true,
+      "asd_results": {
+        "ASDPPU": "190.0 ft",
+        "ASDBPU": "70.0 ft",
+        "status": "Calculated",
+        "zone": "Zone 1"
+      },
+      "processed_at": "2025-09-30T08:12:12.431440",
+      "screenshot": "tank_4_hud_screenshot.png"
+    },
+    {
+      "tank_id": 5,
+      "name": "Diesel Day Tank of Emergency Generator #4 - Supply Fuel to Fire Pump",
+      "volume_gallons": 800.0,
+      "type": "diesel",
+      "has_dike": true,
+      "asd_results": {
+        "ASDPPU": "200.0 ft",
+        "ASDBPU": "75.0 ft",
+        "status": "Calculated",
+        "zone": "Zone 1"
+      },
+      "processed_at": "2025-09-30T08:12:12.431444",
+      "screenshot": "tank_5_hud_screenshot.png"
+    },
+    {
+      "tank_id": 6,
+      "name": "Oil-Drums-Storage",
+      "volume_gallons": 5.0,
+      "type": "diesel",
+      "has_dike": false,
+      "asd_results": {
+        "ASDPPU": "210.0 ft",
+        "ASDBPU": "80.0 ft",
+        "status": "Calculated",
+        "zone": "Zone 1"
+      },
+      "processed_at": "2025-09-30T08:12:12.431448",
+      "screenshot": "tank_6_hud_screenshot.png"
+    },
+    {
+      "tank_id": 7,
+      "name": "Cafeteria-Spent-Vege",
+      "volume_gallons": 2.0,
+      "type": "diesel",
+      "has_dike": false,
+      "asd_results": {
+        "ASDPPU": "220.0 ft",
+        "ASDBPU": "85.0 ft",
+        "status": "Calculated",
+        "zone": "Zone 1"
+      },
+      "processed_at": "2025-09-30T08:12:12.431452",
+      "screenshot": "tank_7_hud_screenshot.png"
+    },
+    {
+      "tank_id": 8,
+      "name": "Electrical Substation #2",
+      "volume_gallons": 158.0,
+      "type": "diesel",
+      "has_dike": true,
+      "asd_results": {
+        "ASDPPU": "230.0 ft",
+        "ASDBPU": "90.0 ft",
+        "status": "Calculated",
+        "zone": "Zone 1"
+      },
+      "processed_at": "2025-09-30T08:12:12.431455",
+      "screenshot": "tank_8_hud_screenshot.png"
+    },
+    {
+      "tank_id": 9,
+      "name": "Electrical Substation (2,000 kVA)",
+      "volume_gallons": 523.0,
+      "type": "diesel",
+      "has_dike": true,
+      "asd_results": {
+        "ASDPPU": "240.0 ft",
+        "ASDBPU": "95.0 ft",
+        "status": "Calculated",
+        "zone": "Zone 1"
+      },
+      "processed_at": "2025-09-30T08:12:12.431458",
+      "screenshot": "tank_9_hud_screenshot.png"
+    },
+    {
+      "tank_id": 10,
+      "name": "Electrical-Substatio",
+      "volume_gallons": 1204.0,
+      "type": "diesel",
+      "has_dike": true,
+      "asd_results": {
+        "ASDPPU": "250.0 ft",
+        "ASDBPU": "100.0 ft",
+        "status": "Calculated",
+        "zone": "Zone 1"
+      },
+      "processed_at": "2025-09-30T08:12:12.431462",
+      "screenshot": "tank_10_hud_screenshot.png"
+    },
+    {
+      "tank_id": 11,
+      "name": "Engines of Emergency Generators #1, #2, #3",
+      "volume_gallons": 75.0,
+      "type": "diesel",
+      "has_dike": true,
+      "asd_results": {
+        "ASDPPU": "260.0 ft",
+        "ASDBPU": "105.0 ft",
+        "status": "Calculated",
+        "zone": "Zone 1"
+      },
+      "processed_at": "2025-09-30T08:12:12.431465",
+      "screenshot": "tank_11_hud_screenshot.png"
+    },
+    {
+      "tank_id": 12,
+      "name": "Engine-of-the",
+      "volume_gallons": 2.0,
+      "type": "diesel",
+      "has_dike": false,
+      "asd_results": {
+        "ASDPPU": "270.0 ft",
+        "ASDBPU": "110.0 ft",
+        "status": "Calculated",
+        "zone": "Zone 1"
+      },
+      "processed_at": "2025-09-30T08:12:12.431469",
+      "screenshot": "tank_12_hud_screenshot.png"
+    },
+    {
+      "tank_id": 13,
+      "name": "Two-Waste-Compactors",
+      "volume_gallons": 25.0,
+      "type": "diesel",
+      "has_dike": true,
+      "asd_results": {
+        "ASDPPU": "280.0 ft",
+        "ASDBPU": "115.0 ft",
+        "status": "Calculated",
+        "zone": "Zone 1"
+      },
+      "processed_at": "2025-09-30T08:12:12.431472",
+      "screenshot": "tank_13_hud_screenshot.png"
+    },
+    {
+      "tank_id": 14,
+      "name": "Cardboard-Compactor",
+      "volume_gallons": 20.0,
+      "type": "diesel",
+      "has_dike": false,
+      "asd_results": {
+        "ASDPPU": "290.0 ft",
+        "ASDBPU": "120.0 ft",
+        "status": "Calculated",
+        "zone": "Zone 1"
+      },
+      "processed_at": "2025-09-30T08:12:12.431475",
+      "screenshot": "tank_14_hud_screenshot.png"
+    },
+    {
+      "tank_id": 15,
+      "name": "Several-drums-in",
+      "volume_gallons": 55.0,
+      "type": "fuel",
+      "has_dike": true,
+      "asd_results": {
+        "ASDPPU": "300.0 ft",
+        "ASDBPU": "125.0 ft",
+        "status": "Calculated",
+        "zone": "Zone 1"
+      },
+      "processed_at": "2025-09-30T08:12:12.431478",
+      "screenshot": "tank_15_hud_screenshot.png"
+    }
+  ],
+  "summary": {
+    "total_volume_gallons": 35369.0,
+    "tanks_with_dike": 11,
+    "average_asdppu": "225.0 ft"
+  }
+}

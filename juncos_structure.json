@@ -1,0 +1,63 @@
+{
+  "file_path": "JUNCOS_HUELLA_EXPLOSIVOS_SITES.xlsx",
+  "sheet_count": 3,
+  "primary_sheet": "Site Information",
+  "sheets": [
+    {
+      "name": "Sheet1",
+      "type": "empty",
+      "rows": 0,
+      "columns": 0,
+      "has_data": false,
+      "column_names": [],
+      "sample": null
+    },
+    {
+      "name": "Features",
+      "type": "features",
+      "rows": 21,
+      "columns": 3,
+      "has_data": true,
+      "column_names": [
+        "Type",
+        "Site Name or Business Name",
+        "Coordinates"
+      ],
+      "sample": {
+        "Type": "Polygon",
+        "Site Name or Business Name": "CRC Juncos 2025 USAR ESTE",
+        "Coordinates": "[[-65.92517348780942, 18.22860757484762], [-65.92583359776211, 18.22852958946418], [-65.92574739638877, 18.22795480817588], [-65.92580482633647, 18.22794369091419], [-65.92577876133265, 18.22784119946791], [-65.92559413773415, 18.22786703767628], [-65.92547153904731, 18.22787638268625], [-65.92538497174674, 18.22788949727661], [-65.92527873691307, 18.2278956359415], [-65.92520560656395, 18.22789252977545], [-65.92514537686172, 18.22789553417524], [-65.92514353364591, 18.22800277485485], [-65.92514714447286, 18.22802947585081], [-65.92521808667128, 18.22802754162666], [-65.92517348780942, 18.22860757484762]]"
+      }
+    },
+    {
+      "name": "Site Information",
+      "type": "tanks",
+      "rows": 19,
+      "columns": 14,
+      "has_data": true,
+      "column_names": [
+        "Site Name or Business Name",
+        "Person Contacted",
+        "Tank Capacity",
+        "Tank Measurements",
+        "Dike Measurements",
+        "Acceptable Separation Distance Calculated",
+        "Approximate Distance to Site (approximately)",
+        "Compliance",
+        "Additional information",
+        "Latitude (NAD83)",
+        "Longitude (NAD83)",
+        "Calculated Distance to Polygon (ft)",
+        "Tank Type",
+        "Has Dike"
+      ],
+      "sample": {
+        "Site Name or Business Name": "CDT Juncos",
+        "Longitude (NAD83)": 18.23028096658137,
+        "Calculated Distance to Polygon (ft)": -65.92012565070284
+      }
+    }
+  ],
+  "tank_count": 19,
+  "feature_count": 21
+}

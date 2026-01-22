@@ -1,0 +1,12 @@
+{
+  "kmz": "/home/avapc/Appspc/explosivos/pipeline_isolated/work/mfw3rygzxq0unnqz5g/tanks_juncos_final.kmz",
+  "polygon": "/home/avapc/Appspc/explosivos/pipeline_isolated/output/mfw3rygzxq0unnqz5g/polygon_1_Site_Boundary_20250923_011735.txt",
+  "excel_template": "/home/avapc/Appspc/explosivos/pipeline_isolated/output/mfw3rygzxq0unnqz5g/tank_locations_20250923_011735.xlsx",
+  "kmz_outputs": [
+    "/home/avapc/Appspc/explosivos/pipeline_isolated/output/mfw3rygzxq0unnqz5g/kmz_parse_result_20250923_011735.json",
+    "/home/avapc/Appspc/explosivos/pipeline_isolated/output/mfw3rygzxq0unnqz5g/tank_locations_20250923_011735.xlsx",
+    "/home/avapc/Appspc/explosivos/pipeline_isolated/output/mfw3rygzxq0unnqz5g/polygon_1_Site_Boundary_20250923_011735.txt"
+  ],
+  "polygons_count": 1,
+  "points_count": 10
+}

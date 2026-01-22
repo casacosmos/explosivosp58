@@ -12,6 +12,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, JSONResponse
 
 import subprocess
+import re
 from api.datastore import load_store
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -578,6 +579,172 @@ async def kmz_parse(file: UploadFile = File(...), session: Optional[str] = Form(
     return {"session": session, "output_dir": str(out_dir), "files": files, "polygons_count": polygons_count, "points_count": points_count, "stdout": proc.stdout}
 
 
+@app.post("/kmz/from-excel")
+async def kmz_from_excel(
+    file: Optional[UploadFile] = File(None),
+    session: Optional[str] = Form(None),
+    polygon_text: Optional[str] = Form(None),
+    polygon_file: Optional[UploadFile] = File(None),
+):
+    """Generate a KMZ directly from an Excel/CSV file.
+
+    Accepts either an uploaded Excel or reuses the session's stored Excel template.
+    Optionally includes a boundary polygon provided as text (one coordinate pair per line)
+    or as an uploaded file.
+    """
+    _ensure_dirs()
+    session = session or uuid.uuid4().hex
+    sess_dir = WORK_ROOT / session
+    out_dir = OUT_ROOT / session
+    sess_dir.mkdir(parents=True, exist_ok=True)
+    out_dir.mkdir(parents=True, exist_ok=True)
+
+    # Resolve Excel path
+    if file is not None:
+        excel_path = out_dir / file.filename
+        with excel_path.open("wb") as f:
+            f.write(await file.read())
+        try:
+            sp = sess_dir / "state.json"
+            st = json.loads(sp.read_text()) if sp.exists() else {}
+            st["excel_filled"] = str(excel_path)
+            sp.write_text(json.dumps(st, indent=2))
+        except Exception:
+            pass
+    else:
+        # Prefer an uploaded filled Excel, fallback to template
+        excel_path = None
+        try:
+            st = json.loads((sess_dir / "state.json").read_text())
+            excel_path = Path(st.get("excel_filled") or st.get("excel_template")) if st.get("excel_filled") or st.get("excel_template") else None
+        except Exception:
+            excel_path = None
+        if not excel_path:
+            raise HTTPException(status_code=400, detail="No Excel provided and none found in session")
+
+    # Prepare polygon if provided
+    polygon_path = None
+    try:
+        # Uploaded file has priority
+        if polygon_file is not None:
+            polygon_path = out_dir / (polygon_file.filename or f"polygon_{session}.txt")
+            with polygon_path.open("wb") as f:
+                f.write(await polygon_file.read())
+        elif polygon_text:
+            polygon_path = out_dir / f"polygon_{session}.txt"
+            polygon_path.write_text(polygon_text)
+        else:
+            # Use previously parsed polygon if present
+            st = json.loads((sess_dir / "state.json").read_text()) if (sess_dir / "state.json").exists() else {}
+            if st.get("polygon") and Path(st["polygon"]).exists():
+                polygon_path = Path(st["polygon"])  # already absolute
+    except Exception:
+        polygon_path = None
+
+    # Target KMZ path
+    kmz_path = out_dir / f"kmz_from_{Path(excel_path).stem}.kmz"
+
+    # Run converter
+    args = ["python", "excel_to_kmz.py", str(excel_path), "-o", str(kmz_path)]
+    if polygon_path and Path(polygon_path).exists():
+        args.extend(["-p", str(polygon_path)])
+    proc = _run(args, cwd=ROOT)
+    if proc.returncode != 0:
+        raise HTTPException(status_code=400, detail=proc.stderr)
+
+    # Extract placemark count from stdout
+    count = 0
+    m = re.search(r"placemarks:\s*(\d+)", proc.stdout or "")
+    if m:
+        try:
+            count = int(m.group(1))
+        except Exception:
+            count = 0
+
+    # Update session state
+    try:
+        sp = sess_dir / "state.json"
+        st = json.loads(sp.read_text()) if sp.exists() else {}
+        st.update({"kmz_from_excel": str(kmz_path), "kmz_points_count": count})
+        sp.write_text(json.dumps(st, indent=2))
+    except Exception:
+        pass
+
+    return {"session": session, "kmz": str(kmz_path), "points_count": count, "stdout": proc.stdout}
+
+
+@app.post("/excel/upload")
+async def excel_upload(file: UploadFile = File(...), session: Optional[str] = Form(None)):
+    """Upload an Excel file directly and prepare it for processing."""
+    _ensure_dirs()
+
+    session = session or uuid.uuid4().hex
+    sess_dir = WORK_ROOT / session
+    out_dir = OUT_ROOT / session
+    sess_dir.mkdir(parents=True, exist_ok=True)
+    out_dir.mkdir(parents=True, exist_ok=True)
+
+    # Save the uploaded Excel file
+    excel_path = out_dir / file.filename
+    with excel_path.open("wb") as f:
+        f.write(await file.read())
+
+    # Also save it as the template file
+    template_path = out_dir / f"tank_locations_{session}.xlsx"
+    shutil.copy2(excel_path, template_path)
+
+    # Initialize datastore with tank information from Excel
+    try:
+        import pandas as pd
+        df = pd.read_excel(excel_path)
+
+        # Extract minimal tank records and persist via datastore API (works for JSON/SQLite)
+        cfg_tanks = []
+        name_col = df.columns[0] if len(df.columns) else 'name'
+        for idx, row in df.iterrows():
+            name = str(row.get('Site Name or Business Name ', row.get(name_col, f'Tank_{idx+1}')))
+            vol = row.get('Tank Capacity', None)
+            cfg_tanks.append({"name": name, "volume": vol})
+
+        store = load_store(WORK_ROOT, session)
+        # Upsert basic tank info, then merge coords/distances from the Excel columns
+        try:
+            store.upsert_from_config({"tanks": cfg_tanks})
+        except Exception:
+            pass
+        try:
+            store.merge_distances_from_excel(excel_path)
+        except Exception:
+            pass
+        try:
+            store.update_meta(excel_template=str(template_path))
+            store.save()
+        except Exception:
+            pass
+
+        # Update session state
+        state_path = sess_dir / 'state.json'
+        st = json.loads(state_path.read_text()) if state_path.exists() else {}
+        st.update({
+            'excel_upload': str(excel_path),
+            'excel_filled': str(excel_path),
+            'excel_template': str(template_path),
+            'tanks_count': len(tanks)
+        })
+        state_path.write_text(json.dumps(st, indent=2))
+
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=f"Failed to process Excel file: {str(e)}")
+
+    return {
+        "session": session,
+        "output_dir": str(out_dir),
+        "excel_path": str(excel_path),
+        "tanks_count": len(tanks),
+        "message": "Excel file uploaded successfully. Proceed to Field Info."
+    }
+
+
 @app.post("/validate-json")
 async def validate_json(file: UploadFile = File(...)):
     _ensure_dirs()
@@ -1050,13 +1217,84 @@ def excel_preview(session: str, limit: int = 25):
     if not p.exists():
         raise HTTPException(status_code=404, detail='session not found')
     st = json.loads(p.read_text())
-    ex = st.get('with_hud_excel') or st.get('excel_filled') or st.get('excel_template')
+    ex = st.get('with_hud_excel') or st.get('excel_filled') or st.get('excel_upload') or st.get('excel_template')
     if not ex:
         raise HTTPException(status_code=400, detail='no excel found in session')
     try:
         return _preview_excel(Path(ex), limit)
     except Exception as e:
         raise HTTPException(status_code=500, detail=f'preview failed: {e}')
+
+
+@app.post("/excel/apply_edits")
+async def excel_apply_edits(
+    session: str = Form(...),
+    edits_json: str = Form(...),  # JSON string: list of { name: str, updates: { col: value, ... } }
+):
+    """Apply targeted cell edits to the session Excel by tank name (first column match).
+
+    Writes a new Excel under output/<session>/excel_edited.xlsx, updates session excel_filled, and returns a preview.
+    """
+    import pandas as pd
+    try:
+        edits = json.loads(edits_json)
+        if not isinstance(edits, list):
+            raise ValueError('edits_json must be a JSON list')
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=f'invalid edits_json: {e}')
+
+    state_path = WORK_ROOT / session / 'state.json'
+    if not state_path.exists():
+        raise HTTPException(status_code=404, detail='session not found')
+
+    st = json.loads(state_path.read_text())
+    src = st.get('with_hud_excel') or st.get('excel_filled') or st.get('excel_upload') or st.get('excel_template')
+    if not src:
+        raise HTTPException(status_code=400, detail='no excel found in session')
+    src_path = Path(src)
+    if not src_path.exists():
+        raise HTTPException(status_code=404, detail='excel path missing on disk')
+
+    try:
+        df = pd.read_excel(src_path)
+        if df.empty:
+            raise HTTPException(status_code=400, detail='excel is empty')
+        name_col = df.columns[0]
+        # apply edits
+        applied = 0
+        for item in edits:
+            name = (item or {}).get('name')
+            updates = (item or {}).get('updates') or {}
+            if not name or not isinstance(updates, dict):
+                continue
+            mask = df[name_col].astype(str).str.strip().str.lower() == str(name).strip().lower()
+            idxs = df.index[mask].tolist()
+            if not idxs:
+                continue
+            for col, val in updates.items():
+                if col not in df.columns:
+                    df[col] = None
+                for idx in idxs:
+                    df.at[idx, col] = val
+                applied += 1
+        # write new edited copy
+        out_dir = OUT_ROOT / session
+        out_dir.mkdir(parents=True, exist_ok=True)
+        out_path = out_dir / 'excel_edited.xlsx'
+        df.to_excel(out_path, index=False)
+        # update session state to use edited excel going forward
+        st['excel_filled'] = str(out_path)
+        state_path.write_text(json.dumps(st, indent=2))
+        return {
+            'ok': True,
+            'applied': applied,
+            'excel': str(out_path),
+            'preview': _preview_excel(out_path, 25)
+        }
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f'apply edits failed: {e}')
 
 
 # Tank data management endpoints
@@ -1241,7 +1479,7 @@ async def excel_normalize(
     else:
         st_path = sess_dir / 'state.json'
         st = json.loads(st_path.read_text()) if st_path.exists() else {}
-        ex = st.get('with_hud_excel') or st.get('excel_filled') or st.get('excel_template')
+        ex = st.get('with_hud_excel') or st.get('excel_filled') or st.get('excel_upload') or st.get('excel_template')
         if not ex:
             raise HTTPException(status_code=400, detail='no excel to normalize in session')
         path = Path(ex)
@@ -1275,7 +1513,7 @@ async def excel_normalize_copy(
     else:
         st_path = sess_dir / 'state.json'
         st = json.loads(st_path.read_text()) if st_path.exists() else {}
-        ex = st.get('with_hud_excel') or st.get('excel_filled') or st.get('excel_template')
+        ex = st.get('with_hud_excel') or st.get('excel_filled') or st.get('excel_upload') or st.get('excel_template')
         if not ex:
             raise HTTPException(status_code=400, detail='no excel found in session')
         src = Path(ex)
@@ -1305,7 +1543,7 @@ async def excel_normalize_report(session: Optional[str] = Form(None), file: Opti
     else:
         st_path = sess_dir / 'state.json'
         st = json.loads(st_path.read_text()) if st_path.exists() else {}
-        ex = st.get('with_hud_excel') or st.get('excel_filled') or st.get('excel_template')
+        ex = st.get('with_hud_excel') or st.get('excel_filled') or st.get('excel_upload') or st.get('excel_template')
         if not ex:
             raise HTTPException(status_code=400, detail='no excel found in session')
         path = Path(ex)

@@ -102,6 +102,42 @@ const res = await fetch(apiUrl('/excel-to-json'), {
 # Uses same packages as excel_to_json_langgraph.py
 ```
 
+## Excel → KMZ Reconstruction
+
+You can reconstruct a KMZ directly from the Excel template (or any compatible Excel/CSV) without the original KMZ. This ensures Excel is a viable single entry point.
+
+### CLI
+
+```bash
+python excel_to_kmz.py tank_locations_filled.xlsx -o output/kmz_from_excel.kmz
+
+# Optionally include a boundary polygon (one "lat lon" or "lon,lat" per line)
+python excel_to_kmz.py tank_locations_filled.xlsx -p polygon.txt -o output/kmz_from_excel.kmz
+```
+
+### API
+
+```http
+POST /kmz/from-excel
+  form-data:
+    file: <Excel or CSV> (optional; if omitted, uses session's stored Excel)
+    session: <session id> (optional)
+    polygon_text: <text content of polygon.txt> (optional)
+    polygon_file: <upload polygon.txt> (optional)
+
+Response JSON:
+  {
+    "session": "...",
+    "kmz": "/abs/path/to/output/<session>/kmz_from_<excel>.kmz",
+    "points_count": 23
+  }
+```
+
+The converter is header-tolerant and recognizes the canonical columns used throughout the pipeline:
+- "Latitude (NAD83)", "Longitude (NAD83)"
+- "Site Name or Business Name " (with trailing space)
+- Optional: capacity, measurements, notes, and contact for richer placemark descriptions.
+
 ## Script Execution Order
 
 ### Complete Pipeline Execution

@@ -56,17 +56,17 @@ def calculate_distances_to_polygon(excel_path, polygon_coords, output_path=None)
     print(f"\nLoaded Excel file with {len(df)} rows")
     
     # Set up coordinate transformation for accurate distance calculation
-    # Use UTM zone 19N for Puerto Rico
-    utm_pr = pyproj.CRS('EPSG:32619')  # WGS84 / UTM zone 19N
+    # Use NAD83 / Puerto Rico & Virgin Islands (EPSG:32161) for high accuracy
+    state_plane_pr = pyproj.CRS('EPSG:32161')  # NAD83 / Puerto Rico & Virgin Islands (meters)
     wgs84 = pyproj.CRS('EPSG:4326')  # WGS84 (lat/lon)
     
     # Create transformers
-    transformer_to_utm = pyproj.Transformer.from_crs(wgs84, utm_pr, always_xy=True)
-    transformer_from_utm = pyproj.Transformer.from_crs(utm_pr, wgs84, always_xy=True)
+    transformer_to_local = pyproj.Transformer.from_crs(wgs84, state_plane_pr, always_xy=True)
+    transformer_from_local = pyproj.Transformer.from_crs(state_plane_pr, wgs84, always_xy=True)
     
-    # Transform polygon to UTM for accurate distance calculation
-    polygon_utm = transform(transformer_to_utm.transform, polygon)
-    print(f"Polygon in UTM - Area: {polygon_utm.area:.2f} square meters ({polygon_utm.area * 10.764:.2f} square feet)")
+    # Transform polygon to Local State Plane for accurate distance calculation
+    polygon_local = transform(transformer_to_local.transform, polygon)
+    print(f"Polygon in EPSG:32161 - Area: {polygon_local.area:.2f} square meters ({polygon_local.area * 10.764:.2f} square feet)")
     
     # Calculate distances for each point
     results = []
@@ -123,22 +123,22 @@ def calculate_distances_to_polygon(excel_path, polygon_coords, output_path=None)
                 })
                 continue
             
-            # Create point and transform to UTM
+            # Create point and transform to Local State Plane
             point = Point(lon, lat)
-            point_utm = transform(transformer_to_utm.transform, point)
+            point_local = transform(transformer_to_local.transform, point)
             
             # Check if point is inside or outside polygon
-            is_inside = polygon_utm.contains(point_utm)
+            is_inside = polygon_local.contains(point_local)
             
             # Calculate distance to boundary
-            distance_meters = point_utm.distance(polygon_utm.exterior)
+            distance_meters = point_local.distance(polygon_local.exterior)
             distance_feet = distance_meters * 3.28084  # Convert meters to feet
             
             # Find closest point on boundary
-            closest_point_utm = polygon_utm.exterior.interpolate(polygon_utm.exterior.project(point_utm))
+            closest_point_local = polygon_local.exterior.interpolate(polygon_local.exterior.project(point_local))
             
             # Transform closest point back to lat/lon
-            closest_lon, closest_lat = transformer_from_utm.transform(closest_point_utm.x, closest_point_utm.y)
+            closest_lon, closest_lat = transformer_from_local.transform(closest_point_local.x, closest_point_local.y)
             
             results.append({
                 'Calculated Distance to Polygon (ft)': distance_feet,

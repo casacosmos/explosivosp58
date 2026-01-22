@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { QuickDataEntry } from './QuickDataEntry'
 import { TankEditor } from './TankEditor'
-import { FieldStudyInfo } from './FieldStudyInfo'
+// FieldStudyInfo removed from Streamlined flow per feedback
 
 interface Props {
   apiUrl: (path: string) => string
@@ -10,8 +10,7 @@ interface Props {
 
 type WorkflowStep =
   | 'kmz_parse'
-  | 'field_info'
-  | 'data_entry'
+    | 'data_entry'
   | 'processing'
   | 'hud_review'
   | 'compliance_review'
@@ -33,6 +32,10 @@ export function StreamlinedApp({ apiUrl, wsUrl }: Props) {
   const [loading, setLoading] = useState(false)
   const [hudJob, setHudJob] = useState<any>(null)
   const [logs, setLogs] = useState<string[]>([])
+  const [isDragging, setIsDragging] = useState(false)
+  const [readyToProceed, setReadyToProceed] = useState(false)
+  const [uploadStatus, setUploadStatus] = useState<string>('')
+  const fileInputRef = useRef<HTMLInputElement>(null)
 
   // Initialize session
   useEffect(() => {
@@ -98,10 +101,15 @@ export function StreamlinedApp({ apiUrl, wsUrl }: Props) {
     try {
       const res = await fetch(apiUrl('/kmz/parse'), { method: 'POST', body: fd })
       const json = await res.json()
-
-      // Move to field info step
-      setCurrentStep('field_info')
-      await loadSessionData(session)
+      if (json?.session && json.session !== session) {
+        setSession(json.session)
+        localStorage.setItem('session', json.session)
+        await loadSessionData(json.session)
+      } else {
+        await loadSessionData(session)
+      }
+      setUploadStatus('KMZ parsed. Click Continue to proceed to Data Entry.')
+      setReadyToProceed(true)
     } catch (e) {
       console.error('KMZ parse failed:', e)
     } finally {
@@ -109,8 +117,74 @@ export function StreamlinedApp({ apiUrl, wsUrl }: Props) {
     }
   }
 
+  const handleExcelUpload = async (file: File) => {
+    setLoading(true)
+    const fd = new FormData()
+    fd.append('file', file)
+    fd.append('session', session)
+
+    try {
+      const res = await fetch(apiUrl('/excel/upload'), { method: 'POST', body: fd })
+      const json = await res.json()
+      if (json?.session && json.session !== session) {
+        setSession(json.session)
+        localStorage.setItem('session', json.session)
+        await loadSessionData(json.session)
+      } else {
+        await loadSessionData(session)
+      }
+      setUploadStatus('Excel uploaded. Click Continue to proceed to Data Entry.')
+      setReadyToProceed(true)
+    } catch (e) {
+      console.error('Excel upload failed:', e)
+      alert('Failed to upload Excel file. Please ensure it contains the required columns.')
+    } finally {
+      setLoading(false)
+    }
+  }
+
   const proceedToDataEntry = () => {
     setCurrentStep('data_entry')
+  }
+
+  // Drag and drop handlers
+  const handleDragEnter = (e: React.DragEvent) => {
+    e.preventDefault()
+    e.stopPropagation()
+    setIsDragging(true)
+  }
+
+  const handleDragLeave = (e: React.DragEvent) => {
+    e.preventDefault()
+    e.stopPropagation()
+    if (e.currentTarget === e.target) {
+      setIsDragging(false)
+    }
+  }
+
+  const handleDragOver = (e: React.DragEvent) => {
+    e.preventDefault()
+    e.stopPropagation()
+  }
+
+  const handleDrop = async (e: React.DragEvent) => {
+    e.preventDefault()
+    e.stopPropagation()
+    setIsDragging(false)
+
+    const files = Array.from(e.dataTransfer.files)
+    const file = files[0]
+
+    if (!file) return
+
+    const fileName = file.name.toLowerCase()
+    if (fileName.endsWith('.kmz') || fileName.endsWith('.kml')) {
+      await handleKmzUpload(file)
+    } else if (fileName.endsWith('.xlsx') || fileName.endsWith('.xls')) {
+      await handleExcelUpload(file)
+    } else {
+      alert('Please drop a KMZ, KML, or Excel file')
+    }
   }
 
   const processData = async () => {
@@ -209,13 +283,12 @@ export function StreamlinedApp({ apiUrl, wsUrl }: Props) {
 
   // Step indicator
   const steps = [
-    { id: 'kmz_parse', label: '1. Upload KMZ', icon: '📍' },
-    { id: 'field_info', label: '2. Field Info', icon: '📋' },
-    { id: 'data_entry', label: '3. Enter Data', icon: '✏️' },
-    { id: 'processing', label: '4. Processing', icon: '⚙️' },
-    { id: 'hud_review', label: '5. Review HUD', icon: '✅' },
-    { id: 'compliance_review', label: '6. Compliance', icon: '📊' },
-    { id: 'complete', label: '7. Complete', icon: '🎉' }
+    { id: 'kmz_parse', label: '1. Upload', icon: '📍' },
+    { id: 'data_entry', label: '2. Enter Data', icon: '✏️' },
+    { id: 'processing', label: '3. Processing', icon: '⚙️' },
+    { id: 'hud_review', label: '4. Review HUD', icon: '✅' },
+    { id: 'compliance_review', label: '5. Compliance', icon: '📊' },
+    { id: 'complete', label: '6. Complete', icon: '🎉' }
   ]
 
   const currentStepIndex = steps.findIndex(s => s.id === currentStep)
@@ -302,49 +375,169 @@ export function StreamlinedApp({ apiUrl, wsUrl }: Props) {
         {/* Step 1: KMZ Upload */}
         {currentStep === 'kmz_parse' && (
           <div>
-            <h2>Step 1: Upload KMZ File</h2>
-            <p>Upload a KMZ/KML file containing tank locations and polygon boundaries.</p>
-            <input
-              type="file"
-              accept=".kmz,.kml"
-              onChange={(e) => {
-                const file = e.target.files?.[0]
-                if (file) handleKmzUpload(file)
-              }}
-              disabled={loading}
-            />
-            {loading && <div style={{ marginTop: 16 }}>Processing KMZ file...</div>}
+            <h2>Step 1: Upload Data File</h2>
+            <p>Upload a KMZ/KML file with tank locations, or an Excel file with existing tank data.</p>
+
+            {/* Show both options side by side */}
+            <div style={{ display: 'flex', gap: 24, alignItems: 'flex-start' }}>
+              {/* Left: Upload new KMZ with drag and drop */}
+              <div style={{ flex: 1 }}>
+                <h3 style={{ fontSize: '1.1em', marginBottom: 12 }}>Option A: Upload New File</h3>
+
+                {/* Drag and Drop Zone */}
+                <div
+                  onDragEnter={handleDragEnter}
+                  onDragLeave={handleDragLeave}
+                  onDragOver={handleDragOver}
+                  onDrop={handleDrop}
+                  style={{
+                    border: `2px dashed ${isDragging ? '#007bff' : '#ccc'}`,
+                    borderRadius: 8,
+                    padding: 32,
+                    textAlign: 'center',
+                    backgroundColor: isDragging ? '#e7f3ff' : '#f9f9f9',
+                    transition: 'all 0.3s ease',
+                    cursor: 'pointer',
+                    marginBottom: 16
+                  }}
+                  onClick={() => !loading && fileInputRef.current?.click()}
+                >
+                  <div style={{ fontSize: '2.5em', marginBottom: 16, opacity: 0.5 }}>
+                    {isDragging ? '📥' : '📁'}
+                  </div>
+                  <p style={{ margin: 0, marginBottom: 8, fontWeight: 'bold', color: isDragging ? '#007bff' : '#333' }}>
+                    {isDragging ? 'Drop your file here' : 'Drag & Drop files here'}
+                  </p>
+                  <p style={{ margin: 0, fontSize: '0.9em', color: '#666', marginBottom: 8 }}>
+                    Accepts: KMZ, KML, or Excel (.xlsx) files
+                  </p>
+                  <div style={{ display: 'flex', gap: 12, justifyContent: 'center', marginTop: 16 }}>
+                    <span style={{
+                      padding: '4px 12px',
+                      backgroundColor: '#e3f2fd',
+                      borderRadius: 16,
+                      fontSize: '0.85em',
+                      color: '#1976d2'
+                    }}>📍 KMZ/KML</span>
+                    <span style={{
+                      padding: '4px 12px',
+                      backgroundColor: '#e8f5e9',
+                      borderRadius: 16,
+                      fontSize: '0.85em',
+                      color: '#4caf50'
+                    }}>📊 Excel</span>
+                  </div>
+                  <input
+                    ref={fileInputRef}
+                    type="file"
+                    accept=".kmz,.kml,.xlsx,.xls"
+                    onChange={(e) => {
+                      const file = e.target.files?.[0]
+                      if (!file) return
+                      const fileName = file.name.toLowerCase()
+                      if (fileName.endsWith('.kmz') || fileName.endsWith('.kml')) {
+                        handleKmzUpload(file)
+                      } else if (fileName.endsWith('.xlsx') || fileName.endsWith('.xls')) {
+                        handleExcelUpload(file)
+                      }
+                    }}
+                    disabled={loading}
+                    style={{ display: 'none' }}
+                  />
+                </div>
+
+                {loading && (
+                  <div style={{
+                    marginTop: 16,
+                    padding: 12,
+                    backgroundColor: '#e3f2fd',
+                    borderRadius: 4,
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 8
+                  }}>
+                    <div style={{ fontSize: '1.2em' }}>⏳</div>
+                    <span>Processing file...</span>
+                  </div>
+                )}
+
+                {!loading && readyToProceed && (
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 16 }}>
+                    <small style={{ color: '#2e7d32' }}>{uploadStatus || 'File ready. Continue when ready.'}</small>
+                    <button
+                      onClick={() => { setCurrentStep('data_entry'); setReadyToProceed(false); setUploadStatus('') }}
+                      style={{
+                        padding: '10px 20px',
+                        backgroundColor: '#4caf50',
+                        color: 'white',
+                        border: 'none',
+                        borderRadius: 4,
+                        cursor: 'pointer',
+                        fontSize: '1em'
+                      }}
+                    >
+                      Continue to Data Entry →
+                    </button>
+                  </div>
+                )}
+              </div>
+
+              {/* Right: Resume directly to Data Entry */}
+              {session && data?.tanks && data.tanks.length > 0 && (
+                <div style={{
+                  flex: 1,
+                  padding: 16,
+                  backgroundColor: '#e8f5e9',
+                  border: '1px solid #4caf50',
+                  borderRadius: 4
+                }}>
+                  <h3 style={{ fontSize: '1.1em', marginTop: 0, marginBottom: 12 }}>
+                    Option B: Resume After Excel Edit
+                  </h3>
+                  <p style={{ margin: 0, marginBottom: 16, fontSize: '0.95em', color: '#666' }}>
+                    If you've modified the Excel file offline and want to restart the process from Data Entry.
+                  </p>
+                  <button
+                    onClick={() => setCurrentStep('data_entry')}
+                    style={{
+                      padding: '10px 20px',
+                      backgroundColor: '#4caf50',
+                      color: 'white',
+                      border: 'none',
+                      borderRadius: 4,
+                      cursor: 'pointer',
+                      fontSize: '1em'
+                    }}
+                  >
+                    Continue to Data Entry →
+                  </button>
+                </div>
+              )}
+            </div>
+
+            {/* If no existing data, show helpful message */}
+            {(!session || !data?.tanks || data.tanks.length === 0) && (
+              <div style={{
+                marginTop: 24,
+                padding: 12,
+                backgroundColor: '#f0f0f0',
+                borderRadius: 4,
+                fontSize: '0.9em',
+                color: '#666'
+              }}>
+                <strong>Note:</strong> To restart from Data Entry after modifying Excel, you need an existing session with tank data.
+              </div>
+            )}
           </div>
         )}
 
         {/* Step 2: Field Information */}
-        {currentStep === 'field_info' && (
-          <div>
-            <h2>Step 2: Field Study Information</h2>
-            <FieldStudyInfo session={session} apiUrl={apiUrl} />
-            <div style={{ marginTop: 24, textAlign: 'right' }}>
-              <button
-                onClick={proceedToDataEntry}
-                style={{
-                  padding: '12px 24px',
-                  backgroundColor: '#28a745',
-                  color: 'white',
-                  border: 'none',
-                  borderRadius: 4,
-                  fontSize: '1.1em',
-                  cursor: 'pointer'
-                }}
-              >
-                Continue to Data Entry →
-              </button>
-            </div>
-          </div>
-        )}
 
-        {/* Step 3: Data Entry */}
+        {/* Data Entry */}
         {currentStep === 'data_entry' && (
           <div>
-            <h2>Step 3: Enter Tank Data</h2>
+            <h2>Step 2: Enter Tank Data</h2>
+            <div style={{ marginBottom: 16, background: '#fff', border: '1px solid #e5e7eb', borderRadius: 6, padding: 12 }}><div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}><strong>Preview: Current Excel (first 25 rows)</strong><small style={{ color: '#666' }}>Use this to verify what’s loaded before editing.</small></div><ExcelPreview session={session} apiUrl={apiUrl} /></div>
             <QuickDataEntry session={session} apiUrl={apiUrl} />
             <div style={{ marginTop: 24, textAlign: 'right' }}>
               <button
@@ -730,6 +923,142 @@ function ComplianceReviewStep({ session, apiUrl, data, onApprove }: any) {
           ✅ Approve Compliance Report →
         </button>
       </div>
+    </div>
+  )
+}
+
+
+function ExcelPreview({ session, apiUrl }: { session: string; apiUrl: (p: string) => string }) {
+  const [data, setData] = React.useState<{ columns: string[]; rows: any[] } | null>(null)
+  const [loading, setLoading] = React.useState(false)
+  const [error, setError] = React.useState<string>("")
+
+  const load = async () => {
+    if (!session) return
+    setLoading(true); setError("")
+    try {
+      const res = await fetch(apiUrl(`/excel/preview?session=${encodeURIComponent(session)}`))
+      if (!res.ok) {
+        const txt = await res.text().catch(() => '')
+        throw new Error(txt || `HTTP ${res.status}`)
+      }
+      const json = await res.json()
+      setData(json)
+    } catch (e) {
+      setError(`Preview unavailable. ${ (e && (e as any).message) ? (e as any).message : 'Upload Excel first.' }`)
+      setData(null)
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  React.useEffect(() => { load() }, [session])
+
+  return (
+    <div>
+      <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: 8 }}>
+        <button onClick={load} disabled={loading} style={{ padding: '6px 10px' }}>
+          {loading ? 'Refreshing…' : 'Refresh'}
+        </button>
+      </div>
+      {error && <small style={{ color: '#a00' }}>{error}</small>}
+      {data && data.columns && (
+        <div style={{ overflowX: 'auto', maxHeight: 260, overflowY: 'auto', border: '1px solid #eee' }}>
+          <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.9em' }}>
+            <thead>
+              <tr>
+                {data.columns.map((c) => (
+                  <th key={c} style={{ position: 'sticky', top: 0, background: '#f8fafc', padding: 8, borderBottom: '1px solid #e5e7eb', textAlign: 'left' }}>{c}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {data.rows.map((r, idx) => (
+                <tr key={idx} style={{ borderBottom: '1px solid #f1f5f9' }}>
+                  {data.columns.map((c) => (
+                    <td key={c} style={{ padding: 8, whiteSpace: 'nowrap' }}>{r[c] === null || r[c] === undefined ? '' : String(r[c])}</td>
+                  ))}
+                </tr>
+              ))}
+              {data.rows.length === 0 && (
+                <tr><td colSpan={data.columns.length} style={{ padding: 12, color: '#777' }}>No rows.</td></tr>
+              )}
+            </tbody>
+          </table>
+        </div>
+      )}
+      {data && data.columns && data.rows && (
+        <ExcelQuickEdit session={session} apiUrl={apiUrl} columns={data.columns} rows={data.rows} />
+      )}
+
+    </div>
+  )
+}
+
+
+function ExcelQuickEdit({ session, apiUrl, columns, rows }: { session: string; apiUrl: (p: string) => string; columns: string[]; rows: any[] }) {
+  const [name, setName] = React.useState<string>('')
+  const [pairs, setPairs] = React.useState<Array<{ col: string; value: string }>>([
+    { col: columns.includes('Tank Capacity') ? 'Tank Capacity' : (columns[1] || columns[0]), value: '' },
+  ])
+  const [saving, setSaving] = React.useState(false)
+  const [msg, setMsg] = React.useState('')
+
+  const names = React.useMemo(() => rows.map((r: any) => String(r[columns[0]] ?? '')).filter(Boolean), [rows, columns])
+  const common = ['Tank Capacity', 'Tank Measurements', 'Dike Measurements', 'Latitude (NAD83)', 'Longitude (NAD83)', 'Additional information ', 'Person Contacted']
+  const orderedCols = Array.from(new Set(['Site Name or Business Name ', ...common, ...columns]))
+
+  const addPair = () => setPairs(p => [...p, { col: columns[1] || columns[0], value: '' }])
+  const removePair = (i: number) => setPairs(p => p.filter((_, idx) => idx !== i))
+
+  const apply = async () => {
+    if (!session || !name || pairs.length === 0) { setMsg('Pick a name and at least one column'); return }
+    const updates: any = {}
+    pairs.forEach(p => { if (p.col) updates[p.col] = p.value })
+    const edits = [{ name, updates }]
+    setSaving(true); setMsg('')
+    try {
+      const fd = new FormData()
+      fd.append('session', session)
+      fd.append('edits_json', JSON.stringify(edits))
+      const res = await fetch(apiUrl('/excel/apply_edits'), { method: 'POST', body: fd })
+      const json = await res.json()
+      if (!res.ok) throw new Error(json?.detail || 'apply failed')
+      setMsg(`Applied ${json.applied} changes. New file ready.`)
+    } catch (e: any) {
+      setMsg(`Failed: ${e?.message || e}`)
+    } finally {
+      setSaving(false)
+    }
+  }
+
+  return (
+    <div style={{ marginTop: 12, paddingTop: 12, borderTop: '1px solid #eee' }}>
+      <div style={{ fontWeight: 'bold', marginBottom: 8 }}>Quick Edit Excel Row</div>
+      {msg && <div style={{ marginBottom: 8, color: msg.startsWith('Failed') ? '#b91c1c' : '#065f46' }}>{msg}</div>}
+      <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', alignItems: 'center' }}>
+        <label>Row (by name):</label>
+        <select value={name} onChange={e => setName(e.target.value)} style={{ padding: 6 }}>
+          <option value="">-- Select --</option>
+          {names.map(n => <option key={n} value={n}>{n}</option>)}
+        </select>
+        <button onClick={addPair} style={{ padding: '6px 10px' }}>+ Field</button>
+      </div>
+      {pairs.map((p, i) => (
+        <div key={i} style={{ display: 'flex', gap: 8, marginTop: 8, alignItems: 'center' }}>
+          <select value={p.col} onChange={e => setPairs(ps => ps.map((x, idx) => idx === i ? { ...x, col: e.target.value } : x))} style={{ padding: 6, minWidth: 240 }}>
+            {orderedCols.map(c => <option key={c} value={c}>{c}</option>)}
+          </select>
+          <input value={p.value} onChange={e => setPairs(ps => ps.map((x, idx) => idx === i ? { ...x, value: e.target.value } : x))} style={{ padding: 6, flex: 1 }} placeholder="New value" />
+          <button onClick={() => removePair(i)} style={{ padding: '6px 10px' }}>Remove</button>
+        </div>
+      ))}
+      <div style={{ marginTop: 8 }}>
+        <button onClick={apply} disabled={saving || !name} style={{ padding: '8px 16px', background: '#4f46e5', color: 'white', border: 'none', borderRadius: 4 }}>
+          {saving ? 'Applying…' : 'Apply edits to Excel'}
+        </button>
+      </div>
+      <div style={{ marginTop: 6, color: '#666' }}>Tip: After applying, click Refresh above to see changes and use Output Files to download.</div>
     </div>
   )
 }

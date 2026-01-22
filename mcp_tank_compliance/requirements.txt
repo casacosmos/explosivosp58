@@ -1,0 +1,29 @@
+# Tank Compliance MCP Server Requirements
+# Core data processing
+pandas
+numpy
+openpyxl
+# Geospatial calculations
+pyproj
+shapely
+# XML processing for KMZ/KML
+lxml
+# Async support
+asyncio-mqtt
+# Browser automation for HUD calculator
+playwright
+Pillow
+# PDF generation
+reportlab
+# Optional for enhanced functionality
+xlsxwriter
+python-dateutil
+# LangGraph and LangChain integration
+langgraph
+langchain
+langchain-openai
+# Chat interface
+streamlit
+# Fuzzy matching for site names
+fuzzywuzzy
+python-levenshtein

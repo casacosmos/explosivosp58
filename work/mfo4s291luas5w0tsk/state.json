@@ -1,0 +1,19 @@
+{
+  "kmz": "/home/avapc/Appspc/explosivos/pipeline_isolated/work/mfo4s291luas5w0tsk/Juncos Explosivos con radio.kml",
+  "polygon": "/home/avapc/Appspc/explosivos/pipeline_isolated/output/mfo4s291luas5w0tsk/polygon_1_CRC_Juncos_2025_USAR_ESTE_20250922_151156.txt",
+  "excel_template": "/home/avapc/Appspc/explosivos/pipeline_isolated/output/mfo4s291luas5w0tsk/tank_locations_20250922_151247.xlsx",
+  "kmz_outputs": [
+    "/home/avapc/Appspc/explosivos/pipeline_isolated/output/mfo4s291luas5w0tsk/polygon_1_CRC_Juncos_2025_USAR_ESTE_20250922_151156.txt",
+    "/home/avapc/Appspc/explosivos/pipeline_isolated/output/mfo4s291luas5w0tsk/tank_locations_20250922_151247.xlsx",
+    "/home/avapc/Appspc/explosivos/pipeline_isolated/output/mfo4s291luas5w0tsk/polygon_1_CRC_Juncos_2025_USAR_ESTE_20250922_151247.txt",
+    "/home/avapc/Appspc/explosivos/pipeline_isolated/output/mfo4s291luas5w0tsk/polygon_3_Cemetery_20250922_151156.txt",
+    "/home/avapc/Appspc/explosivos/pipeline_isolated/output/mfo4s291luas5w0tsk/polygon_2_0.5_Mile_Buffer_Zone_20250922_151156.txt",
+    "/home/avapc/Appspc/explosivos/pipeline_isolated/output/mfo4s291luas5w0tsk/polygon_2_0.5_Mile_Buffer_Zone_20250922_151247.txt",
+    "/home/avapc/Appspc/explosivos/pipeline_isolated/output/mfo4s291luas5w0tsk/tank_locations_20250922_151156.xlsx",
+    "/home/avapc/Appspc/explosivos/pipeline_isolated/output/mfo4s291luas5w0tsk/kmz_parse_result_20250922_151156.json",
+    "/home/avapc/Appspc/explosivos/pipeline_isolated/output/mfo4s291luas5w0tsk/kmz_parse_result_20250922_151247.json",
+    "/home/avapc/Appspc/explosivos/pipeline_isolated/output/mfo4s291luas5w0tsk/polygon_3_Cemetery_20250922_151247.txt"
+  ],
+  "polygons_count": 3,
+  "points_count": 16
+}

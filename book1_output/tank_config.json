@@ -1,0 +1,163 @@
+{
+  "tanks": [
+    {
+      "name": "Diesel Tank TK-001 - Supply Fuel to Emergency Generators",
+      "type": "diesel",
+      "has_dike": true,
+      "site": "Adjacent to the Emergency Power Generators #1, #2, #3",
+      "notes": "Status: active",
+      "volume": 8000.0,
+      "volume_source": "provided",
+      "id": 1
+    },
+    {
+      "name": "Diesel Tank TK-002 - Supply Fuel to Emergency Generators",
+      "type": "diesel",
+      "has_dike": true,
+      "site": "Adjacent to the Emergency Power Generators #1, #2, #3",
+      "notes": "Tank ID: TK-002, Status: active",
+      "volume": 8000.0,
+      "volume_source": "provided",
+      "id": 2
+    },
+    {
+      "name": "Diesel Tank TK-003 - Supply Fuel to Emergency Generators",
+      "type": "diesel",
+      "has_dike": true,
+      "site": null,
+      "notes": "Adjacent to the Emergency Power Generators #1, #2, #3",
+      "volume": 16000.0,
+      "volume_source": "provided",
+      "id": 3
+    },
+    {
+      "name": "Diesel-Day-Tank",
+      "type": "diesel",
+      "has_dike": true,
+      "site": "Adjacent to the Fire Pump House",
+      "notes": "Diesel Day Tank of Fire Pump - Supply Fuel to Fire Pump",
+      "volume": 500.0,
+      "volume_source": "provided",
+      "id": 4
+    },
+    {
+      "name": "Diesel Day Tank of Emergency Generator #4 - Supply Fuel to Fire Pump",
+      "type": "diesel",
+      "has_dike": true,
+      "site": "Gen #4 Adjacent to Waste Compactors",
+      "notes": "Capacity (gallons): 800; Secondary Containment: Dike 10: 4,452 gal; Status: active.",
+      "volume": 800.0,
+      "volume_source": "provided",
+      "id": 5
+    },
+    {
+      "name": "Oil-Drums-Storage",
+      "type": "diesel",
+      "has_dike": false,
+      "site": null,
+      "notes": "Oil Drums Storage Area - Oil Storage for Production Areas",
+      "volume": 5.0,
+      "volume_source": "provided",
+      "id": 6
+    },
+    {
+      "name": "Cafeteria-Spent-Vege",
+      "type": "diesel",
+      "has_dike": false,
+      "site": "Cafeteria",
+      "notes": "Cafeteria Spent Vegetable Oil Drums Storage Area",
+      "volume": 2.0,
+      "volume_source": "provided",
+      "id": 7
+    },
+    {
+      "name": "Electrical Substation #2",
+      "type": "diesel",
+      "has_dike": true,
+      "site": "Next to the Cooling Towers",
+      "notes": "Status: active",
+      "volume": 158.0,
+      "volume_source": "provided",
+      "id": 8
+    },
+    {
+      "name": "Electrical Substation (2,000 kVA)",
+      "type": "diesel",
+      "has_dike": true,
+      "site": "Adjacent the Emergency Power Generators",
+      "notes": "Tank ID: Electrical-Substatio, Status: active",
+      "volume": 523.0,
+      "volume_source": "provided",
+      "id": 9
+    },
+    {
+      "name": "Electrical-Substatio",
+      "type": "diesel",
+      "has_dike": true,
+      "site": "Adjacent the Emergency Power Generators",
+      "notes": "Electrical Substation (38,000 kVA)",
+      "volume": 1204.0,
+      "volume_source": "provided",
+      "id": 10
+    },
+    {
+      "name": "Engines of Emergency Generators #1, #2, #3",
+      "type": "diesel",
+      "has_dike": true,
+      "site": null,
+      "notes": "Location: Gen #1 and #2 in Dike 03. Gen #3 in Dike 04. Status: active",
+      "volume": 75.0,
+      "volume_source": "provided",
+      "id": 11
+    },
+    {
+      "name": "Engine-of-the",
+      "type": "diesel",
+      "has_dike": false,
+      "site": "Fire Pump House",
+      "notes": "Engine of the Fire Pump",
+      "volume": 2.0,
+      "volume_source": "provided",
+      "id": 12
+    },
+    {
+      "name": "Two-Waste-Compactors",
+      "type": "diesel",
+      "has_dike": true,
+      "site": "Front of 90-day Satellite Area",
+      "notes": "Two Waste Compactors - Plastic and Domestic Waste Compactors",
+      "volume": 25.0,
+      "volume_source": "provided",
+      "id": 13
+    },
+    {
+      "name": "Cardboard-Compactor",
+      "type": "diesel",
+      "has_dike": false,
+      "site": null,
+      "notes": "Cardboard Compactor",
+      "volume": 20.0,
+      "volume_source": "provided",
+      "id": 14
+    },
+    {
+      "name": "Several-drums-in",
+      "type": "fuel",
+      "has_dike": true,
+      "site": null,
+      "notes": "Several drums in the Fuel/Oil Drum Storage Enclosure – 12 drums, & 25 pots approximately.",
+      "volume": 55.0,
+      "volume_source": "provided",
+      "dike_dims": null,
+      "id": 15
+    }
+  ],
+  "settings": {
+    "headless": false,
+    "screenshot_full_page": true,
+    "excel_path": "/home/avapc/Appspc/explosivos/pipeline_isolated/book1_pipeline_ready.xlsx",
+    "excel_sheet": null,
+    "file_type": "excel",
+    "output_pdf": "HUD_ASD_Results.pdf"
+  }
+}

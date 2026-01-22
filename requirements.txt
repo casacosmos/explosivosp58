@@ -22,16 +22,23 @@ reportlab
 # Browser automation for HUD screenshots
 playwright
 
-# OpenAI and LangChain for Excel to JSON conversion
+# OpenAI and LangChain for Excel to JSON conversion and Pipeline Agent
 openai
 langchain
+langchain-core
 langgraph
 langchain-openai
+typing-extensions
 
 # Data processing
 numpy
 python-dateutil
 scipy
+
+# Geospatial processing
+shapely
+pyproj
+lxml
 
 # HTTP client
 requests

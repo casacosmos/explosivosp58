@@ -1,0 +1,599 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document id="root_doc">
+	<name>CRC Juncos 2025 USAR ESTE - Complete Site Analysis (0.5 Mile Buffer) - All Points</name>
+	<open>1</open>
+	<atom:link rel="app" href="https://www.google.com/earth/about/versions/#earth-pro" title="Google Earth Pro 7.3.6.10201"></atom:link>
+	<gx:CascadingStyle kml:id="__managed_style_765B99401D3A485854D4">
+		<Style>
+			<IconStyle>
+				<scale>1.68</scale>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=d32f2f&amp;id=2124&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<width>1.5</width>
+			</LineStyle>
+			<PolyStyle>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_322A323C283A485854D4">
+		<Style>
+			<IconStyle>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=d32f2f&amp;id=2124&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+			</LineStyle>
+			<PolyStyle>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<StyleMap id="__managed_style_590A1BC8983A485854D4">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_63D8E930593A485854D4</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_765B99401D3A485854D4</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="__managed_style_2E20D85EFA3A485854D4">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_322A323C283A485854D4</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_468F28B7D23A485854D4</styleUrl>
+		</Pair>
+	</StyleMap>
+	<gx:CascadingStyle kml:id="__managed_style_63D8E930593A485854D4">
+		<Style>
+			<IconStyle>
+				<scale>1.4</scale>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=d32f2f&amp;id=2124&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+			</LineStyle>
+			<PolyStyle>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_1DA000CEC53A4858B268">
+		<Style>
+			<IconStyle>
+				<Icon>
+					<href>https://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+				</Icon>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff0000ff</color>
+				<width>3</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>00ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_252CAAD81C3A4858B268">
+		<Style>
+			<IconStyle>
+				<scale>1.2</scale>
+				<Icon>
+					<href>https://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+				</Icon>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff0000ff</color>
+				<width>4.5</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>00ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<Style id="cemetery_style">
+		<IconStyle>
+			<color>ff666666</color>
+			<scale>0.8</scale>
+			<Icon>
+				<href>https://maps.google.com/mapfiles/kml/shapes/cabs.png</href>
+			</Icon>
+		</IconStyle>
+	</Style>
+	<StyleMap id="__managed_style_3E5E64FE9A3A485854D3">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_05B274AC4C3A485854D4</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_18A18D73593A485854D4</styleUrl>
+		</Pair>
+	</StyleMap>
+	<gx:CascadingStyle kml:id="__managed_style_18A18D73593A485854D4">
+		<Style>
+			<IconStyle>
+				<scale>0.96</scale>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=d32f2f&amp;id=2124&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<width>1.5</width>
+			</LineStyle>
+			<PolyStyle>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_05B274AC4C3A485854D4">
+		<Style>
+			<IconStyle>
+				<scale>0.8</scale>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=d32f2f&amp;id=2124&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+			</LineStyle>
+			<PolyStyle>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_25E130B0B73A485854D3">
+		<Style>
+			<IconStyle>
+				<scale>1.2</scale>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=d32f2f&amp;id=2124&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>6</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+				<displayMode>hide</displayMode>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<StyleMap id="__managed_style_0D594248453A4858B268">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_1DA000CEC53A4858B268</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_252CAAD81C3A4858B268</styleUrl>
+		</Pair>
+	</StyleMap>
+	<gx:CascadingStyle kml:id="__managed_style_157116560B3A485854D3">
+		<Style>
+			<IconStyle>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=d32f2f&amp;id=2124&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>4</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+				<displayMode>hide</displayMode>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_468F28B7D23A485854D4">
+		<Style>
+			<IconStyle>
+				<scale>1.2</scale>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=d32f2f&amp;id=2124&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<width>1.5</width>
+			</LineStyle>
+			<PolyStyle>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<StyleMap id="__managed_style_08D8F7D0523A485854D3">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_157116560B3A485854D3</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_25E130B0B73A485854D3</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="site_style">
+		<LineStyle>
+			<color>ff00ff00</color>
+			<width>3</width>
+		</LineStyle>
+		<PolyStyle>
+			<color>4d00ff00</color>
+		</PolyStyle>
+	</Style>
+	<Folder id="0E4F7E11C03A48374DF4">
+		<name>Site Boundaries</name>
+		<open>1</open>
+		<Placemark id="14957609B63A48374DF4">
+			<name>CRC Juncos 2025 USAR ESTE</name>
+			<description>Original site boundary</description>
+			<styleUrl>#site_style</styleUrl>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							-65.92517348780942,18.22860757484762,0 -65.92583359776211,18.22852958946418,0 -65.92574739638877,18.22795480817588,0 -65.92580482633647,18.22794369091419,0 -65.92577876133265,18.22784119946791,0 -65.92559413773415,18.22786703767628,0 -65.92547153904731,18.22787638268625,0 -65.92538497174674,18.22788949727661,0 -65.92527873691307,18.2278956359415,0 -65.92520560656395,18.22789252977545,0 -65.92514537686172,18.22789553417524,0 -65.92514353364591,18.22800277485485,0 -65.92514714447286,18.22802947585081,0 -65.92521808667128,18.22802754162666,0 -65.92517348780942,18.22860757484762,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark id="055AC14BAE3A484A3400">
+			<name>CDT Juncos</name>
+			<LookAt>
+				<longitude>-65.92016826033584</longitude>
+				<latitude>18.23057903787031</latitude>
+				<altitude>72.32313595156003</altitude>
+				<heading>0</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>342.3937983213182</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_08D8F7D0523A485854D3</styleUrl>
+			<Point>
+				<coordinates>-65.92012565070284,18.23028096658137,72.12359243313215</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="0D5906C38D3A484DF037">
+			<name>Juegos Caray</name>
+			<LookAt>
+				<longitude>-65.92083992053696</longitude>
+				<latitude>18.23059267077523</latitude>
+				<altitude>73.77091966932227</altitude>
+				<heading>0</heading>
+				<tilt>0</tilt>
+				<gx:fovy>35</gx:fovy>
+				<range>170.0032296160316</range>
+				<altitudeMode>absolute</altitudeMode>
+			</LookAt>
+			<styleUrl>#__managed_style_08D8F7D0523A485854D3</styleUrl>
+			<Point>
+				<coordinates>-65.920826679755,18.23059330310288,73.74469948379732</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark id="0944AD3FC23A48586D48">
+			<name>0.5 Mile Buffer Zone</name>
+			<snippet></snippet>
+			<description>Buffer zone around CRC Juncos 2025 USAR ESTE</description>
+			<styleUrl>#__managed_style_0D594248453A4858B268</styleUrl>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							-65.9334074594112,18.2276729086247,0 -65.93334056513361,18.2269447715019,0 -65.93319749802239,18.2262267332189,0 -65.9331714289445,18.2261242427603,0 -65.9329588372803,18.2254377019039,0 -65.9326766119938,18.2247744724766,0 -65.9323274909128,18.2241409865617,0 -65.93191486052341,18.2235433877188,0 -65.9314427231056,18.2229874714143,0 -65.9309156579036,18.2224786288284,0 -65.93033877670629,18.2220217945843,0 -65.92971767426999,18.2216213989061,0 -65.9290583740638,18.2212813246675,0 -65.9283672698631,18.2210048697494,0 -65.9276510637591,18.2207947150679,0 -65.9269167011818,18.2206528985862,0 -65.92617130356879,18.2205807955569,0 -65.9254220993289,18.2205791051918,0 -65.9249288892775,18.2206245668913,0 -65.9248666319708,18.2206293124087,0 -65.92484116581861,18.2206322075979,0 -65.92480902607311,18.2206323263066,0 -65.92474879886289,18.220635330584,0 -65.9239912063546,18.2207095967652,0 -65.9232451786566,18.2208558721267,0 -65.9225181910283,18.2210726909815,0 -65.9218175280151,18.2213578807867,0 -65.92115021047979,18.2217085839044,0 -65.9205229252707,18.2221212862268,0 -65.91994195823131,18.2225918523759,0 -65.9194131312221,18.2231155671296,0 -65.918941743784,18.2236871826557,0 -65.9185325200294,18.2243009710846,0 -65.9181895612918,18.224950781892,0 -65.9179163050089,18.2256301035192,0 -65.9177154902531,18.2263321286123,0 -65.9175891302543,18.2270498222286,0 -65.91753849219241,18.2277759923269,0 -65.917536644316,18.2278832329346,0 -65.9175441045689,18.2283463174798,0 -65.91757403252549,18.2289511186386,0 -65.91764439878131,18.2296517566394,0 -65.9177853383371,18.2303426085345,0 -65.9179955309249,18.2310171986447,0 -65.9182730070744,18.2316692036477,0 -65.91861516654549,18.2322925118562,0 -65.91901880267891,18.2328812805154,0 -65.9194801324341,18.2334299905802,0 -65.91999483183599,18.233933498461,0 -65.92055807649839,18.2343870842503,0 -65.92116458684229,18.2347864959784,0 -65.9218086775892,18.2351279894835,0 -65.9224843110615,18.2354083635201,0 -65.92318515379201,18.2356249897785,0 -65.9239046359115,18.2357758375309,0 -65.9246360127554,18.2358594926752,0 -65.9253724281122,18.2358751709959,0 -65.9261069785201,18.2358227255184,0 -65.92676711527589,18.2357447369777,0 -65.92751169302529,18.2356206227431,0 -65.9282397078065,18.235426525047,0 -65.9289439741197,18.2351643596457,0 -65.9296175409465,18.2348367141181,0 -65.93025376037571,18.2344468223175,0 -65.93084635323289,18.2339985324433,0 -65.9313894710635,18.233496269048,0 -65.9318777538594,18.2329449893546,0 -65.93230638295751,18.2323501343179,0 -65.93267112858859,18.2317175749109,0 -65.9329683916074,18.2310535541689,0 -65.93319523899279,18.2303646255629,0 -65.93334943276849,18.2296575883122,0 -65.9334294520594,18.228939420273,0 -65.93343450806751,18.2282172090685,0 -65.93340427813079,18.2279064561169,0 -65.9334074594112,18.2276729086247,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+	</Folder>
+	<Folder id="1154E0E61F83A48374DF4">
+		<name>Inactive LUST Sites</name>
+		<open>1</open>
+	</Folder>
+	<Folder id="1BC7B25A0793A48374DF4">
+		<name>Schools</name>
+		<open>1</open>
+		<Placemark id="1C7AC2D5C293A48374DF4">
+			<name>Esc. Elemental Jose A. Lopez Castro</name>
+			<description>School - Distance: 0.303 miles - Tel: 734-4544</description>
+			<styleUrl>#__managed_style_3E5E64FE9A3A485854D3</styleUrl>
+			<Point>
+				<coordinates>-65.92983821886769,18.22678284590885,0</coordinates>
+			</Point>
+		</Placemark>
+	</Folder>
+	<Folder id="270AC1071E63A48374DF4">
+		<name>Cemetery</name>
+		<Placemark id="280451B95673A48374DF4">
+			<name>Cemetery</name>
+			<description>Cemetery - Distance: 0.066 miles</description>
+			<styleUrl>#cemetery_style</styleUrl>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							-65.92648896426141,18.22782899027286,0 -65.92648623247757,18.22821721270263,0 -65.92649286482633,18.22840822802613,0 -65.92653467838026,18.22849805516829,0 -65.92662849780895,18.22874956382338,0 -65.92680950330865,18.22909472375613,0 -65.92725226059471,18.22906589769843,0 -65.92752658713511,18.22905144335185,0 -65.92778380850076,18.22903387162145,0 -65.92775555207312,18.22896377660718,0 -65.92768516669808,18.22881460540954,0 -65.92761818905474,18.22866408794169,0 -65.92754180670565,18.22849628896693,0 -65.92747922609915,18.2283616844739,0 -65.92747691596831,18.22834315683151,0 -65.92746401789424,18.22829144315702,0 -65.92744962301101,18.22823421424107,0 -65.92743785795575,18.22815033931205,0 -65.92742211776847,18.22806789947098,0 -65.92741197544342,18.22797869823199,0 -65.92739074741422,18.22786498314391,0 -65.92736777788714,18.22773229016353,0 -65.92733994211028,18.22761494365973,0 -65.92733353201871,18.22760833125652,0 -65.92732362762563,18.22760035439105,0 -65.92731513751208,18.22759373649469,0 -65.92730380133715,18.22759045399554,0 -65.92729084846616,18.22759041979053,0 -65.92719463665779,18.22761022317271,0 -65.92693615282197,18.22767269422789,0 -65.926700011615,18.22772492421986,0 -65.92648846023465,18.22777450849116,0 -65.92648896426141,18.22782899027286,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+	</Folder>
+	<Placemark id="29EFB9BD7723A48374DF4">
+		<name>Gnerador Estadio Mariano &quot;Nini&quot; Meaux</name>
+		<LookAt>
+			<longitude>-65.92608934711318</longitude>
+			<latitude>18.23103118721735</latitude>
+			<altitude>0</altitude>
+			<heading>-17.55826629540189</heading>
+			<tilt>45.43520123491451</tilt>
+			<range>139.432378018573</range>
+			<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_2E20D85EFA3A485854D4</styleUrl>
+		<Point>
+			<gx:drawOrder>1</gx:drawOrder>
+			<coordinates>-65.92608934711319,18.23103118721735,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2A56889B6933A48374DF4">
+		<name>Tanques Colegio Bautista de Juncos</name>
+		<LookAt>
+			<longitude>-65.92124210324924</longitude>
+			<latitude>18.23333872589563</latitude>
+			<altitude>0</altitude>
+			<heading>-127.1110354517675</heading>
+			<tilt>45.00104495341836</tilt>
+			<range>172.2610723464496</range>
+			<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_590A1BC8983A485854D4</styleUrl>
+		<Point>
+			<gx:drawOrder>1</gx:drawOrder>
+			<coordinates>-65.92121206076889,18.23304821443129,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2BF739E70013A48374DF4">
+		<name>Generador nited States Postal Service</name>
+		<LookAt>
+			<longitude>-65.92292995252173</longitude>
+			<latitude>18.23436788784867</latitude>
+			<altitude>0</altitude>
+			<heading>-0.0009075750558119361</heading>
+			<tilt>30.94423412453787</tilt>
+			<range>175.6249397800872</range>
+			<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_590A1BC8983A485854D4</styleUrl>
+		<Point>
+			<gx:drawOrder>1</gx:drawOrder>
+			<coordinates>-65.92315984916392,18.23443029072944,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2C5FE0915D63A48374DF4">
+		<name>Generador Parking</name>
+		<LookAt>
+			<longitude>-65.92580471936284</longitude>
+			<latitude>18.23122253612692</latitude>
+			<altitude>0</altitude>
+			<heading>0.001237968633191915</heading>
+			<tilt>40.90465726342426</tilt>
+			<range>368.2537476775464</range>
+			<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_590A1BC8983A485854D4</styleUrl>
+		<Point>
+			<gx:drawOrder>1</gx:drawOrder>
+			<coordinates>-65.92708265298572,18.23110865545947,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2D6DF3816C13A48374DF4">
+		<name>Coliseo Rafael G Amalbert</name>
+		<LookAt>
+			<longitude>-65.92590259804022</longitude>
+			<latitude>18.23182032778949</latitude>
+			<altitude>0</altitude>
+			<heading>0.001207351305836351</heading>
+			<tilt>40.90467414895251</tilt>
+			<range>371.1244098250106</range>
+			<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_590A1BC8983A485854D4</styleUrl>
+		<Point>
+			<gx:drawOrder>1</gx:drawOrder>
+			<coordinates>-65.92651393145161,18.2318964330818,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2EAF4B6965D3A48374DF4">
+		<name>Garden China</name>
+		<LookAt>
+			<longitude>-65.92041280029812</longitude>
+			<latitude>18.23049141144299</latitude>
+			<altitude>0</altitude>
+			<heading>-0.0006328547151714964</heading>
+			<tilt>26.31167113727696</tilt>
+			<range>151.9491929355834</range>
+			<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_590A1BC8983A485854D4</styleUrl>
+		<Point>
+			<gx:drawOrder>1</gx:drawOrder>
+			<coordinates>-65.92049560989655,18.23068979892739,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2FB280491CC3A48374DF4">
+		<name>Funeraria Miranda</name>
+		<LookAt>
+			<longitude>-65.92236696089161</longitude>
+			<latitude>18.23005500086872</latitude>
+			<altitude>0</altitude>
+			<heading>135.3341542994293</heading>
+			<tilt>46.42243681831297</tilt>
+			<range>98.31646601275895</range>
+			<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_590A1BC8983A485854D4</styleUrl>
+		<Point>
+			<gx:drawOrder>1</gx:drawOrder>
+			<coordinates>-65.92221014448562,18.2297382293247,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="300925C3A393A48374DF4">
+		<name>Tanque Attitude wrestling Academy</name>
+		<LookAt>
+			<longitude>-65.92450000223343</longitude>
+			<latitude>18.22797700434537</latitude>
+			<altitude>0</altitude>
+			<heading>0.0008983495213522317</heading>
+			<tilt>32.19421791443044</tilt>
+			<range>335.8959341441783</range>
+			<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_590A1BC8983A485854D4</styleUrl>
+		<Point>
+			<gx:drawOrder>1</gx:drawOrder>
+			<coordinates>-65.92505177124286,18.22802028736139,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="31537B386423A48374DF4">
+		<name>Generador Biblioteca Jose M gallardo</name>
+		<LookAt>
+			<longitude>-65.92462552893483</longitude>
+			<latitude>18.22831363440771</latitude>
+			<altitude>0</altitude>
+			<heading>0.0008590392487151064</heading>
+			<tilt>32.19577069895068</tilt>
+			<range>660.4149105549913</range>
+			<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_590A1BC8983A485854D4</styleUrl>
+		<Point>
+			<gx:drawOrder>1</gx:drawOrder>
+			<coordinates>-65.92420927298919,18.22796125395976,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="32B632F7B4E3A48374DF4">
+		<name>Generador Coliseo Pito Carrasquillo</name>
+		<LookAt>
+			<longitude>-65.92462552893483</longitude>
+			<latitude>18.22831363440771</latitude>
+			<altitude>0</altitude>
+			<heading>0.0008590392487151064</heading>
+			<tilt>32.19577069895068</tilt>
+			<range>660.4149105549913</range>
+			<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_590A1BC8983A485854D4</styleUrl>
+		<Point>
+			<gx:drawOrder>1</gx:drawOrder>
+			<coordinates>-65.92639935649142,18.22780857533654,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0D472B27A53A484BBA1E">
+		<name>Centro de Cuidado Diurno de Valenciano</name>
+		<LookAt>
+			<longitude>-65.92345004086557</longitude>
+			<latitude>18.22905212606289</latitude>
+			<altitude>76.1085752104721</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>166.664345773861</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_08D8F7D0523A485854D3</styleUrl>
+		<Point>
+			<coordinates>-65.92341997361235,18.22907999138595,76.10856771283558</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0F98D6F57B3A484CF4D8">
+		<name>Iglesia Mar Azul Este</name>
+		<LookAt>
+			<longitude>-65.92169513726925</longitude>
+			<latitude>18.23011123910629</latitude>
+			<altitude>74.87227106031605</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>111.0168534518016</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_08D8F7D0523A485854D3</styleUrl>
+		<Point>
+			<coordinates>-65.92158841640794,18.23000387329657,74.71770574166175</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0B178ECE363A484FAE10">
+		<name>Funeraria Shalom Juncos</name>
+		<LookAt>
+			<longitude>-65.928134806457</longitude>
+			<latitude>18.22795441029234</latitude>
+			<altitude>93.94542326201338</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>142.6299285097593</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_08D8F7D0523A485854D3</styleUrl>
+		<Point>
+			<coordinates>-65.9283734051577,18.22797017574248,96.4036166007096</coordinates>
+		</Point>
+	</Placemark>
+</Document>
+</kml>

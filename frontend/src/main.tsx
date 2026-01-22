@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from 'react'
 import { createRoot } from 'react-dom/client'
 import { TankEditor } from './TankEditor'
 import { QuickDataEntry } from './QuickDataEntry'
-import { FieldStudyInfo } from './FieldStudyInfo'
 import { StreamlinedApp } from './StreamlinedApp'
 
 // API base resolution: prefer env; fallback to '/api' under current origin for dev proxy
@@ -365,9 +364,10 @@ function HudRun({ enabled }: { enabled: boolean }) {
     const fd = new FormData()
     fd.append('file', f)
     if (session) fd.append('session', session)
+    let json: any
     try {
       const res = await fetch(apiUrl('/hud/run'), { method: 'POST', body: fd })
-      const json = await res.json()
+      json = await res.json()
       setJob(json)
       setLogs([])
       setOutputs(null)
@@ -574,6 +574,60 @@ function Compliance() {
   )
 }
 
+function ExcelToKmz() {
+  const { session } = useSessionState()
+  const excelRef = useRef<HTMLInputElement | null>(null)
+  const polygonFileRef = useRef<HTMLInputElement | null>(null)
+  const [polygonText, setPolygonText] = useState('')
+  const [busy, setBusy] = useState(false)
+  const [status, setStatus] = useState('')
+  const [kmzPath, setKmzPath] = useState<string | null>(null)
+
+  const submit = async () => {
+    setBusy(true); setStatus('Generating KMZ…'); setKmzPath(null)
+    try {
+      const fd = new FormData()
+      const ex = excelRef.current?.files?.[0]
+      const pf = polygonFileRef.current?.files?.[0]
+      if (ex) fd.append('file', ex)
+      if (pf) fd.append('polygon_file', pf)
+      else if (polygonText.trim()) fd.append('polygon_text', polygonText)
+      if (session) fd.append('session', session)
+      const res = await fetch(apiUrl('/kmz/from-excel'), { method: 'POST', body: fd })
+      const json = await res.json()
+      if (json?.kmz) setKmzPath(json.kmz)
+      setStatus('Ready')
+    } catch (e) {
+      setStatus('KMZ generation failed')
+    } finally {
+      setBusy(false)
+    }
+  }
+
+  return (
+    <Section title="Excel → KMZ (reconstruct without original KMZ)">
+      <div style={{ marginBottom: 8 }}>
+        <small>Provide an Excel/CSV or leave empty to reuse your session Excel/template.</small>
+      </div>
+      <div style={{ display: 'flex', gap: 8, alignItems: 'center', flexWrap: 'wrap' }}>
+        <input type="file" accept=".xlsx,.xls,.csv" ref={excelRef} />
+        <input type="file" accept=".txt" ref={polygonFileRef} />
+        <button disabled={busy} onClick={submit}>{busy ? 'Generating…' : 'Generate KMZ'}</button>
+        {status && <small style={{ marginLeft: 8, color: '#555' }}>{status}</small>}
+        {kmzPath && (
+          <a style={{ marginLeft: 12 }} href={fileHrefFromOutputPath(kmzPath)} target="_blank" rel="noopener noreferrer" download>
+            Download KMZ
+          </a>
+        )}
+      </div>
+      <div style={{ marginTop: 8 }}>
+        <label style={{ display: 'block', marginBottom: 4 }}>Or paste polygon coordinates (one pair per line; "lat lon" or "lon,lat")</label>
+        <textarea value={polygonText} onChange={e => setPolygonText(e.target.value)} rows={4} style={{ width: '100%', fontFamily: 'monospace' }} />
+      </div>
+    </Section>
+  )
+}
+
 function FilesList() {
   const [files, setFiles] = useState<string[]>([])
   const refresh = async () => {
@@ -626,8 +680,7 @@ function App() {
       <KmzParse />
       <ManualExcelStep />
 
-      {/* Field Study Information */}
-      <FieldStudyInfo session={session} apiUrl={apiUrl} />
+      {/* Field Study Info removed */}
 
       {/* Data Entry Mode Selector */}
       <Section title="Data Entry from Field Notes">
@@ -658,6 +711,7 @@ function App() {
       </Section>
 
       <ExcelToJson onValidated={onValidated} />
+      <ExcelToKmz />
       <HudRun enabled={validated} />
       <UpdateExcel />
       <Compliance />
@@ -722,5 +776,70 @@ function LogViewer({ lines }: { lines: string[] }) {
     <pre ref={boxRef} style={{ flex: 1, maxHeight: 220, overflow: 'auto', background: '#111', color: '#0f0', padding: 8 }}>
       {lines.join('\n')}
     </pre>
+  )
+}
+
+
+
+function ExcelPreview({ session, apiUrl }: { session: string; apiUrl: (p: string) => string }) {
+  const [data, setData] = React.useState<{ columns: string[]; rows: any[] } | null>(null)
+  const [loading, setLoading] = React.useState(false)
+  const [error, setError] = React.useState<string>("")
+
+  const load = async () => {
+    if (!session) return
+    setLoading(true); setError("")
+    try {
+      const res = await fetch(apiUrl(`/excel/preview?session=${encodeURIComponent(session)}`))
+      if (!res.ok) {
+        const txt = await res.text().catch(() => '')
+        throw new Error(txt || `HTTP ${res.status}`)
+      }
+      const json = await res.json()
+      setData(json)
+    } catch (e) {
+      setError(`Preview unavailable. ${e && e.message ? e.message : 'Upload Excel first.'}`)
+      setData(null)
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  React.useEffect(() => { load() }, [session])
+
+  return (
+    <div>
+      <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: 8 }}>
+        <button onClick={load} disabled={loading} style={{ padding: '6px 10px' }}>
+          {loading ? 'Refreshing…' : 'Refresh'}
+        </button>
+      </div>
+      {error && <small style={{ color: '#a00' }}>{error}</small>}
+      {data && data.columns && (
+        <div style={{ overflowX: 'auto', maxHeight: 260, overflowY: 'auto', border: '1px solid #eee' }}>
+          <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.9em' }}>
+            <thead>
+              <tr>
+                {data.columns.map((c) => (
+                  <th key={c} style={{ position: 'sticky', top: 0, background: '#f8fafc', padding: 8, borderBottom: '1px solid #e5e7eb', textAlign: 'left' }}>{c}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {data.rows.map((r, idx) => (
+                <tr key={idx} style={{ borderBottom: '1px solid #f1f5f9' }}>
+                  {data.columns.map((c) => (
+                    <td key={c} style={{ padding: 8, whiteSpace: 'nowrap' }}>{r[c] === null || r[c] === undefined ? '' : String(r[c])}</td>
+                  ))}
+                </tr>
+              ))}
+              {data.rows.length === 0 && (
+                <tr><td colSpan={data.columns.length} style={{ padding: 12, color: '#777' }}>No rows.</td></tr>
+              )}
+            </tbody>
+          </table>
+        </div>
+      )}
+    </div>
   )
 }

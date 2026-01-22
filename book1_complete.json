@@ -1,0 +1,29 @@
+{
+  "file_path": "/home/avapc/Appspc/agenttanks/Book 1.xlsx",
+  "sheet_count": 1,
+  "primary_sheet": "Sheet1",
+  "sheets": [
+    {
+      "name": "Sheet1",
+      "type": "tanks",
+      "rows": 18,
+      "columns": 5,
+      "has_data": true,
+      "column_names": [
+        "Tank Use",
+        "Capacity (gal)",
+        "Secondary containments",
+        "Location",
+        "ASDPPU"
+      ],
+      "sample": {
+        "Tank Use": "Diesel Tank TK-001 - Supply Fuel to Emergency Generators",
+        "Capacity (gal)": 8000,
+        "Secondary containments": "Dike 03: 14,425 gal",
+        "Location": "Adjacent to the Emergency Power Generators #1, #2, #3"
+      }
+    }
+  ],
+  "tank_count": 18,
+  "feature_count": 0
+}

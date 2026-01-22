@@ -1,0 +1,310 @@
+{
+  "name": "tank-compliance",
+  "version": "1.0.0",
+  "description": "MCP server for tank compliance assessment pipeline",
+  "author": "Tank Compliance System",
+  "license": "MIT",
+  "python": {
+    "module": "server",
+    "class": "TankComplianceTools"
+  },
+  "tools": [
+    {
+      "name": "parse_tank_measurements",
+      "description": "Parse tank measurements (e.g., '39\"x46\"x229\"') and calculate volume in gallons",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "measurement_str": {
+            "type": "string",
+            "description": "Tank measurement string with dimensions in inches"
+          }
+        },
+        "required": ["measurement_str"]
+      }
+    },
+    {
+      "name": "parse_multi_tank_capacities",
+      "description": "Parse capacity string with multiple tanks and identify largest for compliance",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "capacity_str": {
+            "type": "string",
+            "description": "Tank capacity string (e.g., '1778 gal; 1126 gal')"
+          }
+        },
+        "required": ["capacity_str"]
+      }
+    },
+    {
+      "name": "extract_asd_values",
+      "description": "Extract ASDPPU and ASDBPU values from ASD calculation string",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "asd_string": {
+            "type": "string",
+            "description": "String containing ASD values"
+          }
+        },
+        "required": ["asd_string"]
+      }
+    },
+    {
+      "name": "parse_kmz_file",
+      "description": "Parse KMZ/KML file to extract site locations and polygon boundaries",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "kmz_path": {
+            "type": "string",
+            "description": "Path to KMZ file"
+          }
+        },
+        "required": ["kmz_path"]
+      }
+    },
+    {
+      "name": "convert_dms_to_decimal",
+      "description": "Convert coordinates from degrees/minutes/seconds to decimal degrees",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "degrees": {
+            "type": "number",
+            "description": "Degrees value"
+          },
+          "minutes": {
+            "type": "number",
+            "description": "Minutes value"
+          },
+          "seconds": {
+            "type": "number",
+            "description": "Seconds value"
+          },
+          "direction": {
+            "type": "string",
+            "description": "Direction (N/S/E/W)",
+            "enum": ["N", "S", "E", "W"]
+          }
+        },
+        "required": ["degrees", "minutes", "seconds"]
+      }
+    },
+    {
+      "name": "match_sites_fuzzy",
+      "description": "Match site names between Excel and KMZ using fuzzy matching",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "excel_sites": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "List of site names from Excel"
+          },
+          "kmz_sites": {
+            "type": "array",
+            "description": "List of site objects from KMZ with name, latitude, longitude"
+          }
+        },
+        "required": ["excel_sites", "kmz_sites"]
+      }
+    },
+    {
+      "name": "calculate_distance_to_polygon",
+      "description": "Calculate minimum distance from a point to polygon boundary using proper projection",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "point_lat": {
+            "type": "number",
+            "description": "Latitude of the point"
+          },
+          "point_lon": {
+            "type": "number",
+            "description": "Longitude of the point"
+          },
+          "polygon_coords": {
+            "type": "array",
+            "description": "List of [lon, lat] pairs defining polygon"
+          }
+        },
+        "required": ["point_lat", "point_lon", "polygon_coords"]
+      }
+    },
+    {
+      "name": "batch_calculate_distances",
+      "description": "Calculate distances for multiple sites to polygon boundary",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "sites": {
+            "type": "array",
+            "description": "List of site objects with latitude and longitude"
+          },
+          "polygon_coords": {
+            "type": "array",
+            "description": "Polygon boundary coordinates"
+          }
+        },
+        "required": ["sites", "polygon_coords"]
+      }
+    },
+    {
+      "name": "assess_compliance",
+      "description": "Assess compliance based on distance and ASD requirements",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "distance_feet": {
+            "type": "number",
+            "description": "Actual distance to boundary in feet"
+          },
+          "asd_values": {
+            "type": "object",
+            "description": "Object with ASDPPU and ASDBPU values"
+          },
+          "has_dike": {
+            "type": "boolean",
+            "description": "Whether tank has a dike",
+            "default": false
+          }
+        },
+        "required": ["distance_feet", "asd_values"]
+      }
+    },
+    {
+      "name": "process_excel_compliance",
+      "description": "Process entire Excel file for comprehensive compliance assessment",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "excel_path": {
+            "type": "string",
+            "description": "Path to Excel file"
+          },
+          "polygon_coords": {
+            "type": "array",
+            "description": "Polygon boundary coordinates"
+          }
+        },
+        "required": ["excel_path", "polygon_coords"]
+      }
+    },
+    {
+      "name": "create_kmz_file",
+      "description": "Create KMZ file with sites, polygons, and compliance visualization",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "sites": {
+            "type": "array",
+            "description": "List of site objects to include"
+          },
+          "polygons": {
+            "type": "array",
+            "description": "List of polygon objects to include"
+          },
+          "output_path": {
+            "type": "string",
+            "description": "Output file path",
+            "default": "output.kmz"
+          }
+        },
+        "required": ["sites", "polygons"]
+      }
+    },
+    {
+      "name": "update_excel_with_results",
+      "description": "Update Excel file with calculated distances and compliance results",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "excel_path": {
+            "type": "string",
+            "description": "Original Excel file path"
+          },
+          "results": {
+            "type": "array",
+            "description": "List of result objects with calculations"
+          },
+          "output_path": {
+            "type": "string",
+            "description": "Output file path (optional, defaults to input path)"
+          }
+        },
+        "required": ["excel_path", "results"]
+      }
+    },
+    {
+      "name": "process_hud_calculations",
+      "description": "Process tanks through HUD ASD calculator browser automation to get compliance distances and generate PDF reports",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "tanks": {
+            "type": "array",
+            "description": "List of tank objects with site_name, tank_capacity, and optional tank_type, contents, has_dike",
+            "items": {
+              "type": "object",
+              "properties": {
+                "site_name": {
+                  "type": "string",
+                  "description": "Name of the tank site"
+                },
+                "tank_capacity": {
+                  "type": "number",
+                  "description": "Tank capacity in gallons"
+                },
+                "tank_type": {
+                  "type": "string",
+                  "description": "Tank type (AST or UST)",
+                  "default": "AST"
+                },
+                "contents": {
+                  "type": "string",
+                  "description": "Tank contents (Gasoline, Diesel, etc)",
+                  "default": "Gasoline"
+                },
+                "has_dike": {
+                  "type": "boolean",
+                  "description": "Whether tank has a dike",
+                  "default": false
+                }
+              },
+              "required": ["site_name", "tank_capacity"]
+            }
+          },
+          "generate_pdf": {
+            "type": "boolean",
+            "description": "Whether to generate PDF report with screenshots",
+            "default": true
+          },
+          "capture_screenshots": {
+            "type": "boolean",
+            "description": "Whether to capture screenshots of calculations",
+            "default": true
+          }
+        },
+        "required": ["tanks"]
+      }
+    }
+  ],
+  "dependencies": {
+    "pandas": ">=2.0.0",
+    "numpy": ">=1.24.0",
+    "pyproj": ">=3.5.0",
+    "shapely": ">=2.0.0"
+  },
+  "capabilities": {
+    "data_parsing": true,
+    "coordinate_transformation": true,
+    "geospatial_calculations": true,
+    "compliance_assessment": true,
+    "visualization_generation": true,
+    "excel_integration": true
+  }
+}

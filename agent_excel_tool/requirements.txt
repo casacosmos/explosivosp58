@@ -1,0 +1,10 @@
+# Minimal Requirements for Agent Excel Tool
+# ==========================================
+
+# Core data processing
+pandas>=2.0.0
+openpyxl>=3.0.0      # Excel file support
+numpy>=1.20.0        # Numerical operations
+
+# Optional: For enhanced features
+# typing-extensions>=4.0.0  # Enhanced type hints

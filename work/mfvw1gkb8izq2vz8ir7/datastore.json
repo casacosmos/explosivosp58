@@ -1,0 +1,661 @@
+{
+  "session": "mfvw1gkb8izq2vz8ir7",
+  "tanks": [
+    {
+      "name": "CDT Juncos",
+      "id": 1,
+      "volume_gal": null,
+      "measurements": null,
+      "type": null,
+      "has_dike": null,
+      "dike_dims": null,
+      "coords": {
+        "lat": 18.2302809665814,
+        "lon": -65.9201256507028
+      },
+      "hud": null,
+      "distance_to_polygon_ft": NaN,
+      "closest_point": {
+        "lat": NaN,
+        "lon": NaN
+      },
+      "point_location": NaN,
+      "compliance": {
+        "status": NaN,
+        "notes": null
+      },
+      "inspected_by": null,
+      "inspection_time": null,
+      "contact_person": null,
+      "field_notes": null
+    },
+    {
+      "name": "Juegos Caray",
+      "id": 2,
+      "volume_gal": null,
+      "measurements": null,
+      "type": null,
+      "has_dike": null,
+      "dike_dims": null,
+      "coords": {
+        "lat": 18.2305933031029,
+        "lon": -65.920826679755
+      },
+      "hud": null,
+      "distance_to_polygon_ft": NaN,
+      "closest_point": {
+        "lat": NaN,
+        "lon": NaN
+      },
+      "point_location": NaN,
+      "compliance": {
+        "status": NaN,
+        "notes": null
+      },
+      "inspected_by": null,
+      "inspection_time": null,
+      "contact_person": null,
+      "field_notes": null
+    },
+    {
+      "name": "Esc. Elemental Jose A. Lopez Castro",
+      "id": 3,
+      "volume_gal": NaN,
+      "measurements": null,
+      "type": null,
+      "has_dike": null,
+      "dike_dims": null,
+      "coords": {
+        "lat": 18.2267828459089,
+        "lon": -65.9298382188677
+      },
+      "hud": null,
+      "distance_to_polygon_ft": NaN,
+      "closest_point": {
+        "lat": NaN,
+        "lon": NaN
+      },
+      "point_location": NaN,
+      "compliance": {
+        "status": NaN,
+        "notes": null
+      },
+      "inspected_by": null,
+      "inspection_time": null,
+      "contact_person": null,
+      "field_notes": null
+    },
+    {
+      "name": "Gnerador Estadio Mariano \"Nini\" Meaux",
+      "id": 4,
+      "volume_gal": NaN,
+      "measurements": null,
+      "type": null,
+      "has_dike": null,
+      "dike_dims": null,
+      "coords": {
+        "lat": 18.2310311872174,
+        "lon": -65.9260893471132
+      },
+      "hud": null,
+      "distance_to_polygon_ft": NaN,
+      "closest_point": {
+        "lat": NaN,
+        "lon": NaN
+      },
+      "point_location": NaN,
+      "compliance": {
+        "status": NaN,
+        "notes": null
+      },
+      "inspected_by": null,
+      "inspection_time": null,
+      "contact_person": null,
+      "field_notes": null
+    },
+    {
+      "name": "Tanques Colegio Bautista de Juncos",
+      "id": 5,
+      "volume_gal": NaN,
+      "measurements": null,
+      "type": null,
+      "has_dike": null,
+      "dike_dims": null,
+      "coords": {
+        "lat": 18.2330482144313,
+        "lon": -65.9212120607689
+      },
+      "hud": null,
+      "distance_to_polygon_ft": NaN,
+      "closest_point": {
+        "lat": NaN,
+        "lon": NaN
+      },
+      "point_location": NaN,
+      "compliance": {
+        "status": NaN,
+        "notes": null
+      },
+      "inspected_by": null,
+      "inspection_time": null,
+      "contact_person": null,
+      "field_notes": null
+    },
+    {
+      "name": "Generador nited States Postal Service",
+      "id": 6,
+      "volume_gal": NaN,
+      "measurements": null,
+      "type": null,
+      "has_dike": null,
+      "dike_dims": null,
+      "coords": {
+        "lat": 18.2344302907294,
+        "lon": -65.9231598491639
+      },
+      "hud": null,
+      "distance_to_polygon_ft": NaN,
+      "closest_point": {
+        "lat": NaN,
+        "lon": NaN
+      },
+      "point_location": NaN,
+      "compliance": {
+        "status": NaN,
+        "notes": null
+      },
+      "inspected_by": null,
+      "inspection_time": null,
+      "contact_person": null,
+      "field_notes": null
+    },
+    {
+      "name": "Generador Parking",
+      "id": 7,
+      "volume_gal": NaN,
+      "measurements": null,
+      "type": null,
+      "has_dike": null,
+      "dike_dims": null,
+      "coords": {
+        "lat": 18.2311086554595,
+        "lon": -65.9270826529857
+      },
+      "hud": null,
+      "distance_to_polygon_ft": NaN,
+      "closest_point": {
+        "lat": NaN,
+        "lon": NaN
+      },
+      "point_location": NaN,
+      "compliance": {
+        "status": NaN,
+        "notes": null
+      },
+      "inspected_by": null,
+      "inspection_time": null,
+      "contact_person": null,
+      "field_notes": null
+    },
+    {
+      "name": "Coliseo Rafael G Amalbert",
+      "id": 8,
+      "volume_gal": null,
+      "measurements": null,
+      "type": null,
+      "has_dike": null,
+      "dike_dims": null,
+      "coords": {
+        "lat": 18.2318964330818,
+        "lon": -65.9265139314516
+      },
+      "hud": null,
+      "distance_to_polygon_ft": NaN,
+      "closest_point": {
+        "lat": NaN,
+        "lon": NaN
+      },
+      "point_location": NaN,
+      "compliance": {
+        "status": NaN,
+        "notes": null
+      },
+      "inspected_by": null,
+      "inspection_time": null,
+      "contact_person": null,
+      "field_notes": null
+    },
+    {
+      "name": "Garden China",
+      "id": 9,
+      "volume_gal": NaN,
+      "measurements": null,
+      "type": null,
+      "has_dike": null,
+      "dike_dims": null,
+      "coords": {
+        "lat": 18.2306897989274,
+        "lon": -65.9204956098966
+      },
+      "hud": null,
+      "distance_to_polygon_ft": NaN,
+      "closest_point": {
+        "lat": NaN,
+        "lon": NaN
+      },
+      "point_location": NaN,
+      "compliance": {
+        "status": NaN,
+        "notes": null
+      },
+      "inspected_by": null,
+      "inspection_time": null,
+      "contact_person": null,
+      "field_notes": null
+    },
+    {
+      "name": "Funeraria Miranda",
+      "id": 10,
+      "volume_gal": null,
+      "measurements": null,
+      "type": null,
+      "has_dike": null,
+      "dike_dims": null,
+      "coords": {
+        "lat": 18.2297382293247,
+        "lon": -65.9222101444856
+      },
+      "hud": null,
+      "distance_to_polygon_ft": NaN,
+      "closest_point": {
+        "lat": NaN,
+        "lon": NaN
+      },
+      "point_location": NaN,
+      "compliance": {
+        "status": NaN,
+        "notes": null
+      },
+      "inspected_by": null,
+      "inspection_time": null,
+      "contact_person": null,
+      "field_notes": null
+    },
+    {
+      "name": "Tanque Attitude wrestling Academy",
+      "id": 11,
+      "volume_gal": null,
+      "measurements": null,
+      "type": null,
+      "has_dike": null,
+      "dike_dims": null,
+      "coords": {
+        "lat": 18.2280202873614,
+        "lon": -65.9250517712429
+      },
+      "hud": null,
+      "distance_to_polygon_ft": NaN,
+      "closest_point": {
+        "lat": NaN,
+        "lon": NaN
+      },
+      "point_location": NaN,
+      "compliance": {
+        "status": NaN,
+        "notes": null
+      },
+      "inspected_by": null,
+      "inspection_time": null,
+      "contact_person": null,
+      "field_notes": null
+    },
+    {
+      "name": "Generador Biblioteca Jose M gallardo",
+      "id": 12,
+      "volume_gal": NaN,
+      "measurements": null,
+      "type": null,
+      "has_dike": null,
+      "dike_dims": null,
+      "coords": {
+        "lat": 18.2279612539598,
+        "lon": -65.9242092729892
+      },
+      "hud": null,
+      "distance_to_polygon_ft": NaN,
+      "closest_point": {
+        "lat": NaN,
+        "lon": NaN
+      },
+      "point_location": NaN,
+      "compliance": {
+        "status": NaN,
+        "notes": null
+      },
+      "inspected_by": null,
+      "inspection_time": null,
+      "contact_person": null,
+      "field_notes": null
+    },
+    {
+      "name": "Centro de Cuidado Diurno de Valenciano",
+      "id": 13,
+      "volume_gal": NaN,
+      "measurements": null,
+      "type": null,
+      "has_dike": null,
+      "dike_dims": null,
+      "coords": {
+        "lat": 18.229079991386,
+        "lon": -65.9234199736124
+      },
+      "hud": null,
+      "distance_to_polygon_ft": NaN,
+      "closest_point": {
+        "lat": NaN,
+        "lon": NaN
+      },
+      "point_location": NaN,
+      "compliance": {
+        "status": NaN,
+        "notes": null
+      },
+      "inspected_by": null,
+      "inspection_time": null,
+      "contact_person": null,
+      "field_notes": null
+    },
+    {
+      "name": "Iglesia Mar Azul Este",
+      "id": 14,
+      "volume_gal": NaN,
+      "measurements": null,
+      "type": null,
+      "has_dike": null,
+      "dike_dims": null,
+      "coords": {
+        "lat": 18.2300038732966,
+        "lon": -65.9215884164079
+      },
+      "hud": null,
+      "distance_to_polygon_ft": NaN,
+      "closest_point": {
+        "lat": NaN,
+        "lon": NaN
+      },
+      "point_location": NaN,
+      "compliance": {
+        "status": NaN,
+        "notes": null
+      },
+      "inspected_by": null,
+      "inspection_time": null,
+      "contact_person": null,
+      "field_notes": null
+    },
+    {
+      "name": "Funeraria Shalom Juncos",
+      "id": 15,
+      "volume_gal": NaN,
+      "measurements": null,
+      "type": null,
+      "has_dike": null,
+      "dike_dims": null,
+      "coords": {
+        "lat": 18.2279701757425,
+        "lon": -65.9283734051577
+      },
+      "hud": null,
+      "distance_to_polygon_ft": NaN,
+      "closest_point": {
+        "lat": NaN,
+        "lon": NaN
+      },
+      "point_location": NaN,
+      "compliance": {
+        "status": NaN,
+        "notes": null
+      },
+      "inspected_by": null,
+      "inspection_time": null,
+      "contact_person": null,
+      "field_notes": null
+    },
+    {
+      "name": "PRASA Generador",
+      "id": 16,
+      "volume_gal": null,
+      "measurements": null,
+      "type": null,
+      "has_dike": null,
+      "dike_dims": null,
+      "coords": {
+        "lat": 18.2278085753365,
+        "lon": -65.9263993564914
+      },
+      "hud": null,
+      "distance_to_polygon_ft": NaN,
+      "closest_point": {
+        "lat": NaN,
+        "lon": NaN
+      },
+      "point_location": NaN,
+      "compliance": {
+        "status": NaN,
+        "notes": null
+      },
+      "inspected_by": null,
+      "inspection_time": null,
+      "contact_person": null,
+      "field_notes": null
+    },
+    {
+      "name": "Coliseo Boxistico Juncos",
+      "id": 17,
+      "volume_gal": null,
+      "measurements": null,
+      "type": null,
+      "has_dike": null,
+      "dike_dims": null,
+      "coords": {
+        "lat": 18.2315123,
+        "lon": -65.926789
+      },
+      "hud": null,
+      "distance_to_polygon_ft": NaN,
+      "closest_point": {
+        "lat": NaN,
+        "lon": NaN
+      },
+      "point_location": NaN,
+      "compliance": {
+        "status": NaN,
+        "notes": null
+      },
+      "inspected_by": null,
+      "inspection_time": null,
+      "contact_person": null,
+      "field_notes": null
+    },
+    {
+      "name": "Salon de activides El valenciano",
+      "id": 18,
+      "volume_gal": null,
+      "measurements": null,
+      "type": null,
+      "has_dike": null,
+      "dike_dims": null,
+      "coords": {
+        "lat": 18.2289456,
+        "lon": -65.9245678
+      },
+      "hud": null,
+      "distance_to_polygon_ft": NaN,
+      "closest_point": {
+        "lat": NaN,
+        "lon": NaN
+      },
+      "point_location": NaN,
+      "compliance": {
+        "status": NaN,
+        "notes": null
+      },
+      "inspected_by": null,
+      "inspection_time": null,
+      "contact_person": null,
+      "field_notes": null
+    },
+    {
+      "name": "Policia Municipal Juncos",
+      "id": 19,
+      "volume_gal": NaN,
+      "measurements": null,
+      "type": null,
+      "has_dike": null,
+      "dike_dims": null,
+      "coords": {
+        "lat": 18.2308765,
+        "lon": -65.9223456
+      },
+      "hud": null,
+      "distance_to_polygon_ft": NaN,
+      "closest_point": {
+        "lat": NaN,
+        "lon": NaN
+      },
+      "point_location": NaN,
+      "compliance": {
+        "status": NaN,
+        "notes": null
+      },
+      "inspected_by": null,
+      "inspection_time": null,
+      "contact_person": null,
+      "field_notes": null
+    },
+    {
+      "name": "PRASA 2 Generador",
+      "id": 20,
+      "volume_gal": NaN,
+      "measurements": null,
+      "type": null,
+      "has_dike": null,
+      "dike_dims": null,
+      "coords": {
+        "lat": 18.2276543,
+        "lon": -65.9265432
+      },
+      "hud": null,
+      "distance_to_polygon_ft": NaN,
+      "closest_point": {
+        "lat": NaN,
+        "lon": NaN
+      },
+      "point_location": NaN,
+      "compliance": {
+        "status": NaN,
+        "notes": null
+      },
+      "inspected_by": null,
+      "inspection_time": null,
+      "contact_person": null,
+      "field_notes": null
+    },
+    {
+      "name": "Farmacia del Pueblo",
+      "id": 21,
+      "volume_gal": NaN,
+      "measurements": null,
+      "type": null,
+      "has_dike": null,
+      "dike_dims": null,
+      "coords": {
+        "lat": 18.2301234,
+        "lon": -65.9212345
+      },
+      "hud": null,
+      "distance_to_polygon_ft": NaN,
+      "closest_point": {
+        "lat": NaN,
+        "lon": NaN
+      },
+      "point_location": NaN,
+      "compliance": {
+        "status": NaN,
+        "notes": null
+      },
+      "inspected_by": null,
+      "inspection_time": null,
+      "contact_person": null,
+      "field_notes": null
+    },
+    {
+      "name": "Policia Estatal",
+      "id": 22,
+      "volume_gal": null,
+      "measurements": null,
+      "type": null,
+      "has_dike": null,
+      "dike_dims": null,
+      "coords": {
+        "lat": 18.230789,
+        "lon": -65.9234567
+      },
+      "hud": null,
+      "distance_to_polygon_ft": NaN,
+      "closest_point": {
+        "lat": NaN,
+        "lon": NaN
+      },
+      "point_location": NaN,
+      "compliance": {
+        "status": NaN,
+        "notes": null
+      },
+      "inspected_by": null,
+      "inspection_time": null,
+      "contact_person": null,
+      "field_notes": null
+    },
+    {
+      "name": "Plaza del Nino",
+      "id": 23,
+      "volume_gal": null,
+      "measurements": null,
+      "type": null,
+      "has_dike": null,
+      "dike_dims": null,
+      "coords": {
+        "lat": 18.2312345,
+        "lon": -65.9256789
+      },
+      "hud": null,
+      "distance_to_polygon_ft": NaN,
+      "closest_point": {
+        "lat": NaN,
+        "lon": NaN
+      },
+      "point_location": NaN,
+      "compliance": {
+        "status": NaN,
+        "notes": null
+      },
+      "inspected_by": null,
+      "inspection_time": null,
+      "contact_person": null,
+      "field_notes": null
+    }
+  ],
+  "meta": {
+    "excel_template": "/home/avapc/Appspc/explosivos/pipeline_isolated/output/mfvw1gkb8izq2vz8ir7/tank_locations_mfvw1gkb8izq2vz8ir7.xlsx"
+  },
+  "field_study": {
+    "date": null,
+    "time": null,
+    "weather": null,
+    "team_lead": null,
+    "team_members": [],
+    "contacts": []
+  },
+  "updated_at": "2025-09-23T05:16:41.469198Z"
+}
